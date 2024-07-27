@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+    <script>
+        function login() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            
+            // Check if username and password are valid
+            // In a real application, you would verify this on the server side
+            
+            if (username === 'exampleuser' && password === 'password123') {
+                alert('Login successful. Welcome, ' + username + '!');
+                open('formulas.html')
+                
+            } else {
+                alert('Invalid username or password. Please try again.');
+            }
+        }
+    </script>
+</head>
+<body>
+    <header class="header">
+        <div class="circle-buttons">
+            <a href="https://www.instagram.com/dapphari007/" class="circle-button Instagram"><img src="IG.jpeg" class="logo-small"></a>
+            <a href="https://www.youtube.com/channel/UC3rx6a3-MsyLRwK5h8JfegQ" class="circle-button youtube"><img src="YT.jpeg" class="logo-small"></a>
+            <a href="https://twitter.com/HARISHk00759927" class="circle-button x"><img src="X.jpeg" class="logo-small"></a>
+        </div>
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="styles.css">
+    <h1>Login&nbsp;<span>SCIENCE FORMULAS</span></h1>
+    <div>
+        <a href="createone.html"><button type="submit">Create One</button></a>
+    </div>
+    </header>
+    <form>
+        <link rel="stylesheet" href="form.css">
+        <b><center>LOGIN</center></b>
+        <div>
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+        </div><br>
+        <div>
+            <label for="password">Password</label>
+            <input type="text" id="password" name="password" required>
+        </div><br>
+        <div>
+            <button type="submit" onclick="login()">Sign In</button>
+        </div>
+        
+    </form>    
+</body>
+</html>

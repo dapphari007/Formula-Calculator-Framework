@@ -1,0 +1,81 @@
+<!-- index.html -->
+
+
+<html>
+<head>
+  <title>FORMULAS</title>
+  <link rel="stylesheet" href="headercontact.css">
+    <div id="header-container"></div>
+    <script src="header.js"></script> 
+</head>
+<body>
+    
+
+<body>
+    <form id="contact_form" action="" method="POST" enctype="multipart/form-data">
+        <div class="row">
+          <label class="required" for="name">Your name:</label><br />
+          <input id="name" class="input" name="name" type="text" value="" size="30" /><br>
+          <span id="name_validation" class="error_message"></span>
+        </div>
+        <div class="row">
+          <label class="required" for="email">Your email:</label><br />
+          <input id="email" class="input" name="email" type="text" value="" size="30" /><br>
+          <span id="email_validation" class="error_message"></span>
+        </div>
+        <div class="row">
+          <label class="required" for="message">Your message:</label><br />
+          <textarea id="message" class="input" name="message" rows="7" cols="30"></textarea><br>
+          <span id="message_validation" class="error_message"></span>
+        </div>
+          
+          <input id="submit_button" type="submit" value="Send email" />
+      </form>
+  
+
+
+
+</body>
+</html>
+
+
+  <style>
+    #contact_form {
+      background-color: #405d27;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      }
+    
+    .row label{
+      color: #FFFFFF;
+      font-size: 18px;
+      margin-left: 10px;
+    }
+    
+    input[type=text], textarea {
+      text-align: center;
+      background-color: #82b74b;
+      border-radius: 10px;
+      margin: auto 0;
+      color: #FFFFFF;
+      margin-left: 10px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      box-shadow: 5px 5px 10px #3e4444;
+      }
+    
+    input[type=text] {
+      height: 25px;
+    }
+    
+    input[type=submit] {
+      background-color: #ff7b25;
+      color: #FFFFFF;
+      border-radius: 10px;
+      font-size: 18px;
+      margin-left: 10px;
+      box-shadow: 5px 5px 5px #3e4444;
+    }
+    </style>
+
+

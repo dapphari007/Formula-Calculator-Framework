@@ -1,0 +1,90 @@
+
+
+* {
+    padding: 0;
+    margin: 0; 
+}
+
+html {
+    font-size: 25px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #ecf0f3;
+}
+
+body.active {
+    background: #5C5C5C;
+} 
+
+input {
+    position: relative;
+    width: 8rem;
+    height: 4rem;
+    outline: none;
+    border: none;
+    margin: 0 1.8rem;
+    border-radius: 3rem;
+     -webkit-appearance: none;
+    cursor: pointer;
+    box-shadow: 13px 13px 20px #cbced1,
+        -13px -13px 20px #ffffff,
+        inset 5px 5px 5px #cbced1,
+        inset -5px -5px 5px #ffffff;
+}
+
+input.active {
+    background: #ecf0f3;
+    box-shadow: inset 5px 5px 5px #cbced1,
+        inset -5px -5px 5px #ffffff;
+}
+
+input::before {
+    content: "";
+    position: absolute;
+    width: 4rem;
+    height: 100%;
+    background: #2B2B2B;
+    box-shadow: 13px 13px 20px rgba(0, 0, 0, .1),
+        -13px -13px 20px rgba(0, 0, 0, .1);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+input::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 1rem;
+    width: 2rem;
+    height: 2rem;
+    margin: auto;
+    background: #ecf0f3;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.7s;
+}
+
+input:checked:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 5.75rem;
+    width: .5rem;
+    height: 2rem;
+    margin: auto;
+    background: #ecf0f3;
+    border-radius: 3rem;
+    cursor: pointer;
+}
+
+input:checked::before {
+    transform: translateX(4rem);
+}

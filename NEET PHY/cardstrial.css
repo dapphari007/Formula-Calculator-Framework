@@ -1,0 +1,52 @@
+/* Common styles for both app and web view */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(5, 6.8cm);
+    grid-template-rows: repeat(5, 9cm);
+    gap: 10px;
+    margin: 0.5cm;
+    margin-block-end: 0.5cm auto;
+}
+
+.grid-item {
+    width: 6cm;
+    height: 8cm;
+    border: 5px solid #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.grid-item img {
+    max-width: 100%;
+    max-height: 70%;
+}
+
+.default-image {
+    background-image: url(''); 
+    background-size: cover;
+}
+
+.card-heading {
+    margin: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Styles for app view (fixed dimensions for containers) */
+@media screen and (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 100%; /* Display one column in app view */
+        grid-template-rows: auto; /* Adjust rows as needed */
+    }
+
+    .grid-item {
+        width: 100%; /* Full width in app view */
+        height: 8cm; /* Fixed height for containers in app view */
+    }
+    
+}
+
+

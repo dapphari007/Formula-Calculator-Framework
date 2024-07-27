@@ -1,0 +1,2625 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulas</title>
+    <link rel="stylesheet" href="cardstrial.css">
+</head>
+<body>
+<br>
+<div class="grid-container">
+     <div class="grid-item" onclick="openMathWindow()">
+            <h2 class="card-heading">Einstein's equation</h2>
+            <img src="1.jpeg" alt="Card Image" class="default-image">
+            <script>
+                function openMathWindow() {
+                    alert("TO FIND ENERGY")
+                    // Get user input for mass and medium
+                    const mass = parseFloat(prompt("Enter mass (in kg):"));
+                    const medium = prompt("Enter the medium (air,or water, or vacuum):").toLowerCase();
+            
+                    // Define the speed of light
+                    const speedOfLightinair = 300000; // meters per second
+                    const speedOfLightinwater = 225000; // meters per second
+                    const speedOfLightinvacuum =300000;
+                    // Calculate energy using the formula E = mc^2
+                    let energy;
+                    switch (medium) {
+                        case "air":
+                            energy = mass * Math.pow(speedOfLightinair, 2);
+                            break;
+                        case "water":
+                            energy = mass * Math.pow(speedOfLightinwater, 2);
+                            break;
+                        case "vacuum":
+                            energy = mass * Math.pow(speedOfLightinair, 2);
+                            break;
+                        default:
+                            alert("Invalid medium. Please enter air, water, or vacuum.");
+                            return;
+                    }
+            
+                    if (!isNaN(energy)) {
+                        alert(`Energy (E) in ${medium} is ${energy} joules`);
+                    } else {
+                        alert("Invalid input for mass or medium.");
+                    }
+                }
+            </script>
+    </div>
+    
+    <div class="grid-item">
+            <h2 class="card-heading">Calculate Magnification</h2>
+            <img src="3.jpeg" alt="Card Image" class="default-image" onclick="calculateMagnification()">
+                   <script>
+                    // Function to calculate the magnification and show the result in a pop-up window
+function calculateMagnification() {
+    const h0 = prompt("Enter the original height (h0):");
+    const h = prompt("Enter the final height (h):");
+
+    if (h0 !== null && h !== null) { // Check if the user didn't cancel the prompts
+        // Parse the input values to numbers
+        const originalHeight = parseFloat(h0);
+        const finalHeight = parseFloat(h);
+
+        // Check if the parsed values are valid numbers
+        if (!isNaN(originalHeight) && !isNaN(finalHeight) && originalHeight !== 0) {
+            // Calculate the magnification
+            const magnification = finalHeight / originalHeight;
+
+            // Create a result element in a new pop-up window
+            const resultWindow = window.open("", "_blank", "width=400,height=200");
+            resultWindow.document.write(`<p>The magnification is approximately ${magnification.toFixed(2)}.</p>`);
+        } else {
+            alert("Invalid input. Please enter valid non-zero numeric values.");
+        }
+    }
+}
+                    </script>
+    </div>
+                 
+    <div class="grid-item">
+            <h2 class="card-heading">Calculate Electric Flux</h2>
+                <img src="4.jpeg" alt="Card Image" class="default-image" onclick="calculateElectricFlux()">
+                   <script>
+                    // Function to calculate the electric flux and show the result in a pop-up window
+                function calculateElectricFlux() {
+                    const electricField = prompt("Enter the magnitude of the electric field (E N/C):");
+                    const surfaceArea = prompt("Enter the surface area (A m^2):");
+
+                    if (electricField !== null && surfaceArea !== null) { // Check if the user didn't cancel the prompts
+                        // Parse the input values to numbers
+                        const electricFieldMagnitude = parseFloat(electricField);
+                        const surfaceAreaValue = parseFloat(surfaceArea);
+
+                        // Check if the parsed values are valid numbers
+                        if (!isNaN(electricFieldMagnitude) && !isNaN(surfaceAreaValue) && surfaceAreaValue > 0) {
+                            // Calculate the electric flux
+                            const electricFlux = electricFieldMagnitude * surfaceAreaValue;
+
+                            // Create a result element in a new pop-up window
+                            const resultWindow = window.open("", "_blank", "width=400,height=200");
+                            resultWindow.document.write(`<p>The electric flux is approximately ${electricFlux.toFixed(2)} N·m^2/C.</p>`);
+                        } else {
+                            alert("Invalid input. Please enter valid numeric values with a positive surface area.");
+                        }
+                    }
+                }
+             </script>
+    </div>
+        
+    <div class="grid-item">
+            <h2 class="card-heading">Quantisation Of Charge</h2> 
+            <img src="5.jpeg" alt="Card Image" class="default-image" onclick="getAndDisplayCharge()">
+            <script>
+                function getAndDisplayCharge() {
+                    // Get input for the integer n
+                    var n = prompt('Enter the value for n (an integer):');
+            
+                    // Convert the input to an integer
+                    n = parseInt(n);
+            
+                    // Elementary charge (in coulombs)
+                    var e = 1.602e-19;
+            
+                    // Calculate the total charge
+                    var q = n * e;
+            
+                    // Display the result in an alert window
+                    alert('Total charge (q) for n = ' + n + ' is: ' + q.toFixed(19) + ' coulombs');
+                }
+            </script>    
+    </div>
+        
+    <div class="grid-item">
+            <h2 class="card-heading">Coulomb's Law</h2> 
+            <img src="6.jpeg" alt="Card Image" class="default-image" onclick="calculateForce()">
+            <script>
+                function calculateForce() {
+                    // Get input for the charges and distance
+                    var q1 = prompt('Enter the value for charge q1 (in coulombs):');
+                    var q2 = prompt('Enter the value for charge q2 (in coulombs):');
+                    var r = prompt('Enter the distance between charges (in meters):');
+        
+                    // Convert the inputs to numbers
+                    q1 = parseFloat(q1);
+                    q2 = parseFloat(q2);
+                    r = parseFloat(r);
+        
+                    // Coulomb's constant (in N m^2/C^2)
+                    var k = 8.9875e9;
+        
+                    // Calculate the force using Coulomb's Law
+                    var force = k * (q1 * q2) / Math.pow(r, 2);
+        
+                    // Display the result in an alert window
+                    alert('The electrostatic force between charges is: ' + force.toFixed(2) + ' Newtons');
+                }
+            </script>    
+    </div>
+
+    <div class="grid-item">
+            <h2 class="card-heading">Newton's Law of Gravitation</h2> 
+            <img src="7.jpeg" alt="Card Image" class="default-image" onclick="calculateGravity()">
+            <script>
+                function calculateGravity() {
+                    // Get input for the masses and distance
+                    var m1 = prompt('Enter the mass of object 1 (in kilograms):');
+                    var m2 = prompt('Enter the mass of object 2 (in kilograms):');
+                    var r = prompt('Enter the distance between the centers of the masses (in meters):');
+        
+                    // Convert the inputs to numbers
+                    m1 = parseFloat(m1);
+                    m2 = parseFloat(m2);
+                    r = parseFloat(r);
+        
+                    // Gravitational constant (in m^3/(kg s^2))
+                    var G = 6.6743e-11;
+        
+                    // Calculate the gravitational force using Newton's Law of Gravitation
+                    var force = (G * m1 * m2) / Math.pow(r, 2);
+        
+                    // Display the result in an alert window
+                    alert('The gravitational force between the objects is: ' + force.toFixed(2) + ' Newtons');
+                }
+            </script>    
+    </div>
+        
+    <div class="grid-item">
+            <h2 class="card-heading">Electric Field Calculation</h2> 
+            <img src="8.jpg" alt="Card Image" class="default-image" onclick="calculateElectricField()">
+            <script>
+                function calculateElectricField() {
+                    // Get input for the point charge and distance
+                    var q = prompt('Enter the magnitude of the point charge (in coulombs):');
+                    var r = prompt('Enter the distance from the point charge (in meters):');
+        
+                    // Convert the inputs to numbers
+                    q = parseFloat(q);
+                    r = parseFloat(r);
+        
+                    // Coulomb's constant (in N m^2/C^2)
+                    var k = 8.9875e9;
+        
+                    // Calculate the electric field using the formula E = k * (q / r^2)
+                    var electricField = k * (q / Math.pow(r, 2));
+        
+                    // Display the result in an alert window
+                    alert('The electric field at this point is: ' + electricField.toFixed(2) + ' N/C');
+                }
+            </script>    
+    </div>
+        
+    <div class="grid-item">
+            <h2 class="card-heading">Acceleration of Electron</h2> 
+            <img src="9.jpg" alt="Card Image" class="default-image" onclick="calculateAcceleration()">
+            <script>
+                function calculateAcceleration() {
+                    // Constants
+                    var q = -1.602e-19; // Charge of an electron in coulombs
+                    var m = 9.109e-31;  // Mass of an electron in kilograms
+        
+                    // Get input for the electric field
+                    var E = prompt('Enter the electric field strength (in N/C):');
+        
+                    // Convert the input to a number
+                    E = parseFloat(E);
+        
+                    // Calculate the force on the electron using F = q * E
+                    var force = q * E;
+        
+                    // Calculate the acceleration using F = m * a
+                    var acceleration = force / m;
+        
+                    // Display the result in an alert window
+                    alert('The acceleration of the electron is: ' + acceleration.toFixed(2) + ' m/s²');
+                }
+            </script>    
+    </div>  
+        
+    <div class="grid-item">
+            <h2 class="card-heading">Electric Flux Calculation</h2> 
+            <img src="10.jpeg" alt="Card Image" class="default-image" onclick="calculateElectricFlux()">
+            <script>
+                function calculateElectricFlux() {
+                    // Get input for the electric field magnitude
+                    var E = prompt('Enter the magnitude of the electric field (in N/C):');
+        
+                    // Get input for the area of the surface
+                    var A = prompt('Enter the area of the surface (in square meters):');
+        
+                    // Get input for the angle between the electric field and the normal to the surface
+                    var theta = prompt('Enter the angle between the electric field and the normal to the surface (in degrees):');
+        
+                    // Convert the inputs to numbers
+                    E = parseFloat(E);
+                    A = parseFloat(A);
+                    theta = parseFloat(theta);
+        
+                    // Convert the angle from degrees to radians
+                    var thetaRadians = (Math.PI / 180) * theta;
+        
+                    // Calculate the electric flux using the formula Phi_E = E * A * cos(theta)
+                    var electricFlux = E * A * Math.cos(thetaRadians);
+        
+                    // Display the result in an alert window
+                    alert('The electric flux through the surface is: ' + electricFlux.toFixed(2) + ' N m²/C');
+                }
+            </script>    
+    </div> 
+    
+    <div class="grid-item">
+        <h2 class="card-heading">Dipole in a Uniform External Electric Field</h2> 
+        <img src="11.png" alt="Card Image" class="default-image" onclick="calculateTorque()">
+        <script>
+        function calculateTorque() {
+            // Get input for the dipole moment
+            var p = prompt('Enter the dipole moment (in C·m):');
+
+            // Get input for the magnitude of the external electric field
+            var E = prompt('Enter the magnitude of the external electric field (in N/C):');
+
+            // Get input for the angle between the dipole moment and the electric field
+            var theta = prompt('Enter the angle between the dipole moment and the electric field (in degrees):');
+
+            // Convert the inputs to numbers
+            p = parseFloat(p);
+            E = parseFloat(E);
+            theta = parseFloat(theta);
+
+            // Convert the angle from degrees to radians
+            var thetaRadians = (Math.PI / 180) * theta;
+
+            // Calculate the torque using the formula tau = p * E * sin(theta)
+            var torque = p * E * Math.sin(thetaRadians);
+
+            // Display the result in an alert window
+            alert('The torque acting on the dipole is: ' + torque.toFixed(2) + ' N·m');
+        }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Gauss's Law</h2> 
+        <img src="12.jpg" alt="Card Image" class="default-image" onclick="calculateGaussLaw()">
+        <script>
+            function calculateGaussLaw() {
+                // Get input for the total charge enclosed by the surface
+                var Q = prompt('Enter the total charge enclosed by the surface (in C)');
+    
+                // Convert the input to a number
+                Q = parseFloat(Q);
+    
+                // Vacuum permittivity (in C^2/(N·m^2))
+                var epsilon0 = 8.854e-12;
+    
+                // Calculate the electric flux using Gauss's Law
+                var electricFlux = Q / epsilon0;
+    
+                // Display the result in an alert window
+                alert('The electric flux through the closed surface is: ' + electricFlux.toFixed(2) + ' N·m²/C');
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Electric Field due to an Infinitely Long Straight Uniformly Charged Wire</h2> 
+        <img src="13.jpeg" alt="Card Image" class="default-image" onclick="calculateElectricField()">
+        <script>
+            function calculateElectricField() {
+                // Coulomb's constant (in N m^2/C^2)
+                var k = 8.9875e9;
+    
+                // Get input for the linear charge density of the wire
+                var lambda = prompt('Enter the linear charge density of the wire (in C/m):');
+    
+                // Get input for the perpendicular distance from the wire
+                var r = prompt('Enter the perpendicular distance from the wire (in meters):');
+    
+                // Convert the inputs to numbers
+                lambda = parseFloat(lambda);
+                r = parseFloat(r);
+    
+                // Calculate the electric field using the formula E = (2 * k * lambda) / r
+                var electricField = (2 * k * lambda) / r;
+    
+                // Display the result in an alert window
+                alert('The electric field at a distance ' + r + ' from the wire is: ' + electricField.toFixed(2) + ' N/C');
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Electric Field due to a Uniformly Charged Infinite Plane Sheet</h2> 
+        <img src="14.jpeg" alt="Card Image" class="default-image" onclick="calculateElectricField()">
+        <script>
+            function calculateElectricField() {
+                // Vacuum permittivity (in C^2/(N·m^2))
+                var epsilon0 = 8.854e-12;
+    
+                // Get input for the charge density of the plane sheet
+                var sigma = prompt('Enter the charge density of the plane sheet (in C/m²):');
+    
+                // Convert the input to a number
+                sigma = parseFloat(sigma);
+    
+                // Calculate the electric field using the formula E = sigma / (2 * epsilon0)
+                var electricField = sigma / (2 * epsilon0);
+    
+                // Display the result in an alert window
+                alert('The electric field due to the uniformly charged infinite plane sheet is: ' + electricField.toFixed(2) + ' N/C');
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Electric Field due to a Uniformly Charged Thin Spherical Shell (Outside the Shell)</h2> 
+        <img src="15.jpeg" alt="Card Image" class="default-image" onclick="calculateElectricField()">
+        <script>
+            function calculateElectricField() {
+                // Coulomb's constant (in N m^2/C^2)
+                var k = 8.9875e9;
+    
+                // Get input for the total charge on the spherical shell
+                var Q = prompt('Enter the total charge on the spherical shell (in C):');
+    
+                // Get input for the radial distance from the center of the shell
+                var r = prompt('Enter the radial distance from the center of the shell (in meters):');
+    
+                // Convert the inputs to numbers
+                Q = parseFloat(Q);
+                r = parseFloat(r);
+    
+                // Calculate the electric field using the formula E = (k * Q) / r^2
+                var electricField = (k * Q) / Math.pow(r, 2);
+    
+                // Display the result in an alert window
+                alert('The electric field outside the uniformly charged thin spherical shell is: ' + electricField.toFixed(2) + ' N/C');
+            }
+        </script>    
+    </div>
+    
+    <div class="grid-item">
+        <h2 class="card-heading">Electric Field inside a Uniformly Charged Thin Spherical Shell</h2> 
+        <img src="16.jpeg" alt="Card Image" class="default-image" onclick="electricFieldInside()">
+        <script>
+            function electricFieldInside() {
+                // Display the result in an alert window
+                alert('The electric field inside a uniformly charged thin spherical shell is zero.');
+            }
+        </script>    
+    </div>
+
+    <!-- Lesson 1 is Over -->
+    <!-- ELECTROSTATIC POTENTIAL ANDCAPACITANCE  -->
+
+    <div class="grid-item">
+        <h2 class="card-heading">Electric Potential</h2> 
+        <img src="17.jpg" alt="Card Image" class="default-image" onclick="calculateElectricPotential()">
+        <script>
+            function calculateElectricPotential() {
+                // Get input for the work done
+                var W = prompt('Enter the work done (in J):');
+    
+                // Get input for the test charge
+                var q = prompt('Enter the test charge (in C):');
+    
+                // Convert the inputs to numbers
+                W = parseFloat(W);
+                q = parseFloat(q);
+    
+                // Calculate the electric potential using the formula V = W / q
+                var electricPotential = W / q;
+    
+                // Display the result in an alert window
+                alert('The electric potential is: ' + electricPotential.toFixed(2) + ' V');
+            }
+        </script>    
+    </div>
+    
+    <div class="grid-item">
+        <h2 class="card-heading">Potential Difference</h2> 
+        <img src="18.jpeg" alt="Card Image" class="default-image" onclick="calculatePotentialDifference()">
+        <script>
+            function calculatePotentialDifference() {
+                // Get input for the electric potential at point B
+                var VB = prompt('Enter the electric potential at point B (in V):');
+    
+                // Get input for the electric potential at point A
+                var VA = prompt('Enter the electric potential at point A (in V):');
+    
+                // Convert the inputs to numbers
+                VB = parseFloat(VB);
+                VA = parseFloat(VA);
+    
+                // Calculate the potential difference using the formula ΔV = VB - VA
+                var potentialDifference = VB - VA;
+    
+                // Display the result in an alert window
+                alert('The potential difference is: ' + potentialDifference.toFixed(2) + ' V');
+            }
+        </script>    
+    </div>
+     
+    <div class="grid-item">
+        <h2 class="card-heading">Electric Potential due to a Point Charge</h2> 
+        <img src="19.jpeg" alt="Card Image" class="default-image" onclick="calculateElectricPotential()">
+        <script>
+            function calculateElectricPotential() {
+                // Coulomb's constant (in N m^2/C^2)
+                var k = 8.9875e9;
+    
+                // Get input for the point charge
+                var Q = prompt('Enter the point charge (in C):');
+    
+                // Get input for the distance from the point charge
+                var r = prompt('Enter the distance from the point charge (in meters):');
+    
+                // Convert the inputs to numbers
+                Q = parseFloat(Q);
+                r = parseFloat(r);
+    
+                // Calculate the electric potential using the formula V = k * Q / r
+                var electricPotential = k * Q / r;
+    
+                // Display the result in an alert window
+                alert('The electric potential due to the point charge is: ' + electricPotential.toFixed(2) + ' V');
+            }
+        </script>    
+    </div>
+    
+    <div class="grid-item">
+        <h2 class="card-heading">Electric Potential due to a Uniformly Charged Sphere</h2> 
+        <img src="20.jpeg" alt="Card Image" class="default-image" onclick="calculateElectricPotential()">
+        <script>
+            function calculateElectricPotential() {
+                // Coulomb's constant (in N m^2/C^2)
+                var k = 8.9875e9;
+    
+                // Get input for the total charge on the sphere
+                var Q = prompt('Enter the total charge on the uniformly charged sphere (in C):');
+    
+                // Get input for the distance from the center of the sphere
+                var r = prompt('Enter the distance from the center of the sphere (in meters):');
+    
+                // Convert the inputs to numbers
+                Q = parseFloat(Q);
+                r = parseFloat(r);
+    
+                // Calculate the electric potential using the formula V = k * Q / r
+                var electricPotential = k * Q / r;
+    
+                // Display the result in an alert window
+                alert('The electric potential due to the uniformly charged sphere is: ' + electricPotential.toFixed(2) + ' V');
+            }
+        </script>    
+    </div>
+    
+    <div class="grid-item">
+        <h2 class="card-heading">Electric Potential due to an Electric Dipole</h2> 
+        <img src="21.jpeg" alt="Card Image" class="default-image" onclick="calculateElectricPotential()">
+        <script>
+            function calculateElectricPotential() {
+                // Coulomb's constant (in N m^2/C^2)
+                var k = 8.9875e9;
+    
+                // Get input for the dipole moment
+                var p = prompt('Enter the dipole moment (in C·m):');
+    
+                // Get input for the distance from the dipole
+                var r = prompt('Enter the distance from the dipole (in meters):');
+    
+                // Get input for the angle between the dipole moment and the line joining the dipole to the point
+                var theta = prompt('Enter the angle between the dipole moment and the line joining the dipole to the point (in degrees):');
+    
+                // Convert the inputs to numbers
+                p = parseFloat(p);
+                r = parseFloat(r);
+                theta = parseFloat(theta);
+    
+                // Convert the angle from degrees to radians
+                var thetaRadians = (Math.PI / 180) * theta;
+    
+                // Calculate the electric potential using the formula V = k * p * cos(theta) / r^2
+                var electricPotential = k * p * Math.cos(thetaRadians) / Math.pow(r, 2);
+    
+                // Display the result in an alert window
+                alert('The electric potential due to the electric dipole is: ' + electricPotential.toFixed(2) + ' V');
+            }
+        </script>    
+    </div>
+    
+    <div class="grid-item">
+        <h2 class="card-heading">Electric Field Intensity</h2> 
+        <img src="22.jpg" alt="Card Image" class="default-image" onclick="calculateElectricFieldIntensity()">
+        <script>
+            function calculateElectricFieldIntensity() {
+                // Get input for the force on the test charge
+                var F = prompt('Enter the force on the test charge (in N):');
+    
+                // Get input for the test charge
+                var q = prompt('Enter the test charge (in C):');
+    
+                // Convert the inputs to numbers
+                F = parseFloat(F);
+                q = parseFloat(q);
+    
+                // Calculate the electric field intensity using the formula E = F / q
+                var electricFieldIntensity = F / q;
+    
+                // Display the result in an alert window
+                alert('The electric field intensity is: ' + electricFieldIntensity.toFixed(2) + ' N/C');
+            }
+        </script>    
+    </div>
+    
+    <div class="grid-item">
+        <h2 class="card-heading">Electric Field Lines</h2> 
+        <img src="23.jpg" alt="Card Image" class="default-image" onclick="displayElectricFieldLines()">
+        <script>
+            function displayElectricFieldLines() {
+                // Display information or initiate visualization for electric field lines
+                alert('Electric field lines represent the direction and strength of the electric field at various points in space.');
+            }
+        </script>    
+    </div>
+    
+    <div class="grid-item">
+        <h2 class="card-heading">Gauss's Law</h2> 
+        <img src="24.jpg" alt="Card Image" class="default-image" onclick="calculateGaussLaw()">
+        <script>
+            function calculateGaussLaw() {
+                // Get input for the total charge enclosed by the surface
+                var Q = prompt('Enter the total charge enclosed by the surface (in C):');
+    
+                // Get input for the vacuum permittivity
+                var epsilon0 = prompt('Enter the vacuum permittivity (in C^2/(N·m^2)):');
+    
+                // Convert the inputs to numbers
+                Q = parseFloat(Q);
+                epsilon0 = parseFloat(epsilon0);
+    
+                // Calculate the electric flux using Gauss's Law
+                var electricFlux = Q / epsilon0;
+    
+                // Display the result in an alert window
+                alert('The electric flux through the closed surface is: ' + electricFlux.toFixed(2) + ' N·m²/C');
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Electric Potential Energy</h2> 
+        <img src="26.jpg" alt="Card Image" class="default-image" onclick="calculateElectricPotentialEnergy()">
+        <script>
+            function calculateElectricPotentialEnergy() {
+                // Coulomb's constant (in N m^2/C^2)
+                var k = 8.9875e9;
+    
+                // Get input for the charges and their separation
+                var q1 = prompt('Enter the charge q1 (in C):');
+                var q2 = prompt('Enter the charge q2 (in C):');
+                var r = prompt('Enter the separation distance (in meters):');
+    
+                // Convert the inputs to numbers
+                q1 = parseFloat(q1);
+                q2 = parseFloat(q2);
+                r = parseFloat(r);
+    
+                // Calculate the electric potential energy using the formula U = k * q1 * q2 / r
+                var electricPotentialEnergy = k * q1 * q2 / r;
+    
+                // Display the result in an alert window
+                alert('The electric potential energy is: ' + electricPotentialEnergy.toFixed(2) + ' J');
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Capacitance</h2> 
+        <img src="25.jpg" alt="Card Image" class="default-image" onclick="calculateCapacitance()">
+        <script>
+            function calculateCapacitance() {
+                // Get input for the charge on the capacitor plates
+                var Q = prompt('Enter the charge on the capacitor plates (in C):');
+    
+                // Get input for the potential difference between the capacitor plates
+                var V = prompt('Enter the potential difference between the capacitor plates (in V):');
+    
+                // Convert the inputs to numbers
+                Q = parseFloat(Q);
+                V = parseFloat(V);
+    
+                // Calculate the capacitance using the formula C = Q / V
+                var capacitance = Q / V;
+    
+                // Display the result in an alert window
+                alert('The capacitance is: ' + capacitance.toFixed(2) + ' F');
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Capacitance of a Parallel-Plate Capacitor</h2> 
+        <img src="27.jpg" alt="Card Image" class="default-image" onclick="calculateCapacitance()">
+        <script>
+            function calculateCapacitance() {
+                // Vacuum permittivity (in C^2/(N·m^2))
+                var epsilon0 = 8.854e-12;
+    
+                // Get input for the area of the capacitor plates
+                var A = prompt('Enter the area of the capacitor plates (in m²):');
+    
+                // Get input for the separation between the capacitor plates
+                var d = prompt('Enter the separation between the capacitor plates (in meters):');
+    
+                // Convert the inputs to numbers
+                A = parseFloat(A);
+                d = parseFloat(d);
+    
+                // Calculate the capacitance using the formula C = epsilon0 * A / d
+                var capacitance = epsilon0 * A / d;
+    
+                // Display the result in an alert window
+                alert('The capacitance of the parallel-plate capacitor is: ' + capacitance.toFixed(2) + ' F');
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Capacitance of a Spherical Capacitor</h2> 
+        <img src="28.jpeg" alt="Card Image" class="default-image" onclick="calculateSphericalCapacitance()">
+        <script>
+            function calculateSphericalCapacitance() {
+    // Vacuum permittivity (in C^2/(N·m^2))
+    var epsilon0 = 8.854e-12;
+
+    // Get input for the radii of the inner and outer spheres
+    var R1 = prompt('Enter the radius of the inner sphere (in meters):');
+    var R2 = prompt('Enter the radius of the outer sphere (in meters):');
+
+    // Convert the inputs to numbers
+    R1 = parseFloat(R1);
+    R2 = parseFloat(R2);
+
+    // Check if the radii are equal
+    if (R1 === R2) {
+        alert('The radii of the inner and outer spheres cannot be equal. Please enter different values.');
+        return;
+    }
+
+    // Calculate the capacitance using the formula C = 4πε₀(R1 R2) / |R2 - R1|
+    var capacitance = 4 * Math.PI * epsilon0 * R1 * R2 / Math.abs(R2 - R1);
+
+    // Display the result in an alert window
+    alert('The capacitance of the spherical capacitor is: ' + capacitance.toFixed(10) + ' F');
+}
+
+        </script>    
+    </div>
+    
+    <div class="grid-item">
+        <h2 class="card-heading">Capacitors in Series and Parallel</h2> 
+        <img src="29.jpg" alt="Card Image" class="default-image" onclick="calculateEquivalentCapacitance()">
+        <script>
+            function calculateEquivalentCapacitance() {
+                // Get input for the capacitances of the capacitors
+                var C1 = prompt('Enter the capacitance of capacitor 1 (in F):');
+                var C2 = prompt('Enter the capacitance of capacitor 2 (in F):');
+    
+                // Convert the inputs to numbers
+                C1 = parseFloat(C1);
+                C2 = parseFloat(C2);
+    
+                // Calculate the equivalent capacitance for capacitors in series and parallel
+                var equivalentSeries = 1 / (1 / C1 + 1 / C2);
+                var equivalentParallel = C1 + C2;
+    
+                // Display the results in an alert window
+                alert('Equivalent capacitance for capacitors in series: ' + equivalentSeries.toFixed(2) + ' F\n' +
+                      'Equivalent capacitance for capacitors in parallel: ' + equivalentParallel.toFixed(2) + ' F');
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Energy Stored in a Capacitor</h2> 
+        <img src="30.jpg" alt="Card Image" class="default-image" onclick="calculateEnergyStored()">
+        <script>
+            function calculateEnergyStored() {
+                // Get input for the capacitance of the capacitor
+                var C = prompt('Enter the capacitance of the capacitor (in F):');
+    
+                // Get input for the potential difference across the capacitor
+                var V = prompt('Enter the potential difference across the capacitor (in V):');
+    
+                // Convert the inputs to numbers
+                C = parseFloat(C);
+                V = parseFloat(V);
+    
+                // Calculate the energy stored in the capacitor using the formula U = 0.5 * C * V^2
+                var energyStored = 0.5 * C * Math.pow(V, 2);
+    
+                // Display the result in an alert window
+                alert('The energy stored in the capacitor is: ' + energyStored.toFixed(2) + ' J');
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Dielectric Constant</h2> 
+        <img src="31.jpg" alt="Card Image" class="default-image" onclick="calculateDielectricConstant()">
+        <script>
+            function calculateDielectricConstant() {
+                // Get input for the capacitance with the dielectric
+                var C = prompt('Enter the capacitance with the dielectric (in F):');
+    
+                // Get input for the capacitance without the dielectric
+                var C0 = prompt('Enter the capacitance without the dielectric (in F):');
+    
+                // Convert the inputs to numbers
+                C = parseFloat(C);
+                C0 = parseFloat(C0);
+    
+                // Calculate the dielectric constant using the formula εr = C / C0
+                var dielectricConstant = C / C0;
+    
+                // Display the result in an alert window
+                alert('The dielectric constant is: ' + dielectricConstant.toFixed(2));
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Polarisation</h2> 
+        <img src="32.jpg" alt="Card Image" class="default-image" onclick="showPolarisation()">
+        <script>
+            function showPolarisation() {
+                // Display information about polarisation in an alert window
+                alert('Polarisation is the process in which positive and negative charges within a dielectric material are separated, leading to the creation of an electric dipole moment. It occurs in response to an external electric field.');
+            }
+        </script>    
+    </div>
+    
+    <div class="grid-item">
+        <h2 class="card-heading">Electric Flux</h2> 
+        <img src="33.jpg" alt="Card Image" class="default-image" onclick="calculateElectricFlux()">
+        <script>
+            function calculateElectricFlux() {
+                // Get input for the electric field, area, and angle
+                var E = prompt('Enter the electric field strength (in N/C):');
+                var A = prompt('Enter the area (in m²):');
+                var theta = prompt('Enter the angle between the electric field and the normal to the surface (in degrees):');
+    
+                // Convert the inputs to numbers
+                E = parseFloat(E);
+                A = parseFloat(A);
+                theta = parseFloat(theta);
+    
+                // Convert the angle from degrees to radians
+                var thetaRadians = (Math.PI / 180) * theta;
+    
+                // Calculate the electric flux using the formula ΦE = E * A * cos(theta)
+                var electricFlux = E * A * Math.cos(thetaRadians);
+    
+                // Display the result in an alert window
+                alert('The electric flux through the surface is: ' + electricFlux.toFixed(2) + ' N·m²/C');
+            }
+        </script>    
+    </div>
+
+    <!-- Lesson 1 is Over -->
+    <!-- CURRENT ELECTRICITY  -->
+
+    <div class="grid-item">
+        <h2 class="card-heading">Electric Current</h2> 
+        <img src="34.jpg" alt="Card Image" class="default-image" onclick="calculateElectricCurrent()">
+        <script>
+            function calculateElectricCurrent() {
+                // Get input for the charge and time
+                var Q = prompt('Enter the charge (in C):');
+                var t = prompt('Enter the time (in s):');
+    
+                // Convert the inputs to numbers
+                Q = parseFloat(Q);
+                t = parseFloat(t);
+    
+                // Calculate the electric current using the formula I = Q / t
+                var electricCurrent = Q / t;
+    
+                // Display the result in an alert window
+                alert('The electric current is: ' + electricCurrent.toFixed(2) + ' A');
+            }
+        </script>    
+    </div>
+    
+    <div class="grid-item">
+        <h2 class="card-heading">Electric Charge</h2> 
+        <img src="35.jpg" alt="Card Image" class="default-image" onclick="calculateElectricCharge()">
+        <script>
+            function calculateElectricCharge() {
+                // Get input for the electric current and time
+                var I = prompt('Enter the electric current (in A):');
+                var t = prompt('Enter the time (in s):');
+    
+                // Convert the inputs to numbers
+                I = parseFloat(I);
+                t = parseFloat(t);
+    
+                // Calculate the electric charge using the formula Q = I * t
+                var electricCharge = I * t;
+    
+                // Display the result in an alert window
+                alert('The electric charge is: ' + electricCharge.toFixed(2) + ' C');
+            }
+        </script>    
+    </div>
+    
+    <div class="grid-item">
+        <h2 class="card-heading">Drift Velocity</h2> 
+        <img src="36.jpeg" alt="Card Image" class="default-image" onclick="calculateDriftVelocity()">
+        <script>
+            function calculateDriftVelocity() {
+                // Get input for the current density and charge carrier density
+                var J = prompt('Enter the current density (in A/m²):');
+                var n = prompt('Enter the charge carrier density (in electrons/m³):');
+                var e = prompt('Enter the charge of the electron (in C):');
+    
+                // Convert the inputs to numbers
+                J = parseFloat(J);
+                n = parseFloat(n);
+                e = parseFloat(e);
+    
+                // Calculate the drift velocity using the formula v_d = J / (n * e)
+                var driftVelocity = J / (n * e);
+    
+                // Display the result in an alert window
+                alert('The drift velocity is: ' + driftVelocity.toFixed(2) + ' m/s');
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Ohm's Law</h2> 
+        <img src="37.jpg" alt="Card Image" class="default-image" onclick="calculateOhmsLaw()">
+        <script>
+            function calculateOhmsLaw() {
+                // Get input for voltage and resistance
+                var V = prompt('Enter the voltage (in volts):');
+                var R = prompt('Enter the resistance (in ohms):');
+    
+                // Convert the inputs to numbers
+                V = parseFloat(V);
+                R = parseFloat(R);
+    
+                // Calculate the current using Ohm's Law: I = V / R
+                var I = V / R;
+    
+                // Display the result in an alert window
+                alert('The current (I) in the circuit is: ' + I.toFixed(2) + ' Amperes');
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Electric Potential</h2> 
+        <img src="38.jpg" alt="Card Image" class="default-image" onclick="calculateElectricPotential()">
+        <script>
+            function calculateElectricPotential() {
+                // Get input for the electric potential and charge
+                var V = prompt('Enter the electric potential (in volts):');
+                var q = prompt('Enter the charge (in coulombs):');
+    
+                // Convert the inputs to numbers
+                V = parseFloat(V);
+                q = parseFloat(q);
+    
+                // Calculate the work done using the formula W = qV
+                var workDone = q * V;
+    
+                // Display the result in an alert window
+                alert('The work done (W) is: ' + workDone.toFixed(2) + ' joules');
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Resistance</h2> 
+        <img src="39.jpg" alt="Card Image" class="default-image" onclick="calculateResistance()">
+        <script>
+            function calculateResistance() {
+                // Get input for voltage and current
+                var V = prompt('Enter the voltage (in volts):');
+                var I = prompt('Enter the current (in amperes):');
+    
+                // Convert the inputs to numbers
+                V = parseFloat(V);
+                I = parseFloat(I);
+    
+                // Calculate the resistance using Ohm's Law: R = V / I
+                var R = V / I;
+    
+                // Display the result in an alert window
+                alert('The resistance (R) in the circuit is: ' + R.toFixed(2) + ' ohms');
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Relaxation Time</h2> 
+        <img src="40.jpg" alt="Card Image" class="default-image" onclick="calculateRelaxationTime()">
+        <script>
+            function calculateRelaxationTime() {
+                // Get input for the resistivity and mobility
+                var resistivity = prompt('Enter the resistivity (in ohm·m):');
+                var mobility = prompt('Enter the mobility (in m²/V·s):');
+    
+                // Convert the inputs to numbers
+                resistivity = parseFloat(resistivity);
+                mobility = parseFloat(mobility);
+    
+                // Calculate the relaxation time using the formula τ = ρ / (q * n * μ)
+                var relaxationTime = resistivity / mobility;
+    
+                // Display the result in an alert window
+                alert('The relaxation time is: ' + relaxationTime.toFixed(2) + ' s');
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Mobility</h2> 
+        <img src="41.jpeg" alt="Card Image" class="default-image" onclick="calculateMobility()">
+        <script>
+            function calculateMobility() {
+                // Get input for the drift velocity and electric field
+                var driftVelocity = prompt('Enter the drift velocity (in m/s):');
+                var electricField = prompt('Enter the electric field (in V/m):');
+    
+                // Convert the inputs to numbers
+                driftVelocity = parseFloat(driftVelocity);
+                electricField = parseFloat(electricField);
+    
+                // Calculate the mobility using the formula μ = v_d / E
+                var mobility = driftVelocity / electricField;
+    
+                // Display the result in an alert window
+                alert('The mobility is: ' + mobility.toFixed(2) + ' m²/V·s');
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Electric Force</h2> 
+        <img src="electric-force.jpeg" alt="Card Image" class="default-image" onclick="calculateElectricForce()">
+        <script>
+            function calculateElectricForce() {
+                // Get input for the charge and electric field
+                var charge = prompt('Enter the charge (in C):');
+                var electricField = prompt('Enter the electric field (in V/m):');
+    
+                // Convert the inputs to numbers
+                charge = parseFloat(charge);
+                electricField = parseFloat(electricField);
+    
+                // Calculate the electric force using the formula F = q * E
+                var electricForce = charge * electricField;
+    
+                // Display the result in an alert window
+                alert('The electric force is: ' + electricForce.toFixed(2) + ' N');
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Electric Potential</h2> 
+        <img src="electric-potential.jpeg" alt="Card Image" class="default-image" onclick="calculateElectricPotential()">
+        <script>
+            function calculateElectricPotential() {
+                // Get input for the work done and charge
+                var workDone = prompt('Enter the work done (in J):');
+                var charge = prompt('Enter the charge (in C):');
+    
+                // Convert the inputs to numbers
+                workDone = parseFloat(workDone);
+                charge = parseFloat(charge);
+    
+                // Calculate the electric potential using the formula V = W / q
+                var electricPotential = workDone / charge;
+    
+                // Display the result in an alert window
+                alert('The electric potential is: ' + electricPotential.toFixed(2) + ' V');
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Resistivity</h2> 
+        <img src="resistivity.jpeg" alt="Card Image" class="default-image" onclick="calculateResistivity()">
+        <script>
+            function calculateResistivity() {
+                // Get input for the resistance, area, and length
+                var resistance = prompt('Enter the resistance (in ohms):');
+                var area = prompt('Enter the cross-sectional area (in m²):');
+                var length = prompt('Enter the length (in m):');
+    
+                // Convert the inputs to numbers
+                resistance = parseFloat(resistance);
+                area = parseFloat(area);
+                length = parseFloat(length);
+    
+                // Calculate the resistivity using the formula ρ = R * (A / L)
+                var resistivity = resistance * (area / length);
+    
+                // Display the result in an alert window
+                alert('The resistivity is: ' + resistivity.toFixed(2) + ' ohm·m');
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Resistivity</h2> 
+        <img src="resistivity.jpeg" alt="Card Image" class="default-image" onclick="calculateResistivity()">
+        <script>
+            function calculateResistivity() {
+                // Get input for the resistance, area, and length
+                var resistance = prompt('Enter the resistance (in ohms):');
+                var area = prompt('Enter the cross-sectional area (in m²):');
+                var length = prompt('Enter the length (in m):');
+    
+                // Convert the inputs to numbers
+                resistance = parseFloat(resistance);
+                area = parseFloat(area);
+                length = parseFloat(length);
+    
+                // Calculate the resistivity using the formula ρ = R * (A / L)
+                var resistivity = resistance * (area / length);
+    
+                // Display the result in an alert window
+                alert('The resistivity is: ' + resistivity.toFixed(2) + ' ohm·m');
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Wheatstone Bridge</h2> 
+        <img src="wheatstone-bridge.jpeg" alt="Card Image" class="default-image" onclick="calculateWheatstoneBridge()">
+        <script>
+            function calculateWheatstoneBridge() {
+                // Get input for the resistances in the Wheatstone Bridge
+                var R1 = prompt('Enter the resistance of R1 (in ohms):');
+                var R2 = prompt('Enter the resistance of R2 (in ohms):');
+                var R3 = prompt('Enter the resistance of R3 (in ohms):');
+                var R4 = prompt('Enter the resistance of R4 (in ohms):');
+    
+                // Convert the inputs to numbers
+                R1 = parseFloat(R1);
+                R2 = parseFloat(R2);
+                R3 = parseFloat(R3);
+                R4 = parseFloat(R4);
+    
+                // Calculate the unknown resistance using the Wheatstone Bridge formula
+                var unknownResistance = (R2 / R1) * (R4 / R3);
+    
+                // Display the result in an alert window
+                alert('The unknown resistance in the Wheatstone Bridge is: ' + unknownResistance.toFixed(2) + ' ohms');
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Meter Bridge</h2> 
+        <img src="meter-bridge.jpeg" alt="Card Image" class="default-image" onclick="calculateMeterBridge()">
+        <script>
+            function calculateMeterBridge() {
+                // Get input for the lengths of the bridge wire and the balancing length
+                var bridgeWireLength = prompt('Enter the length of the bridge wire (in meters):');
+                var balancingLength = prompt('Enter the balancing length (in meters):');
+    
+                // Convert the inputs to numbers
+                bridgeWireLength = parseFloat(bridgeWireLength);
+                balancingLength = parseFloat(balancingLength);
+    
+                // Calculate the unknown resistance using the Meter Bridge formula
+                var unknownResistance = (balancingLength / (bridgeWireLength - balancingLength)) * 100;
+    
+                // Display the result in an alert window
+                alert('The unknown resistance using the Meter Bridge is: ' + unknownResistance.toFixed(2) + ' ohms');
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Internal Resistance</h2> 
+        <img src="internal-resistance.jpeg" alt="Card Image" class="default-image" onclick="calculateInternalResistance()">
+        <script>
+            function calculateInternalResistance() {
+                // Get input for the electromotive force (emf) and the terminal voltage
+                var emf = prompt('Enter the electromotive force (emf) (in V):');
+                var terminalVoltage = prompt('Enter the terminal voltage (in V):');
+    
+                // Convert the inputs to numbers
+                emf = parseFloat(emf);
+                terminalVoltage = parseFloat(terminalVoltage);
+    
+                // Calculate the internal resistance using the formula r = (emf - terminal voltage) / current
+                var internalResistance = (emf - terminalVoltage);
+    
+                // Display the result in an alert window
+                alert('The internal resistance is: ' + internalResistance.toFixed(2) + ' ohms');
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Electromotive Force (emf)</h2> 
+        <img src="emf.jpeg" alt="Card Image" class="default-image" onclick="calculateEMF()">
+        <script>
+            function calculateEMF() {
+                // Get input for the work done, charge, and internal resistance
+                var workDone = prompt('Enter the work done (in J):');
+                var charge = prompt('Enter the charge (in C):');
+                var internalResistance = prompt('Enter the internal resistance (in ohms):');
+    
+                // Convert the inputs to numbers
+                workDone = parseFloat(workDone);
+                charge = parseFloat(charge);
+                internalResistance = parseFloat(internalResistance);
+    
+                // Calculate the electromotive force (emf) using the formula emf = work done / charge + internal resistance
+                var emf = workDone / charge + internalResistance;
+    
+                // Display the result in an alert window
+                alert('The electromotive force (emf) is: ' + emf.toFixed(2) + ' V');
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Conservation of Energy in an Electric Circuit</h2> 
+        <img src="conservation-of-energy.jpeg" alt="Card Image" class="default-image" onclick="explainConservationOfEnergy()">
+        <script>
+            function explainConservationOfEnergy() {
+                // Display information about Conservation of Energy in an alert window
+                alert("Conservation of energy in an electric circuit ensures that the total energy supplied by the power source is equal to the total energy consumed by the circuit components (resistors, etc.) and losses (e.g., heat).");
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Series and Parallel Circuits</h2> 
+        <img src="series-parallel-circuits.jpeg" alt="Card Image" class="default-image" onclick="explainSeriesParallelCircuits()">
+        <script>
+            function explainSeriesParallelCircuits() {
+                // Display information about Series and Parallel Circuits in an alert window
+                alert("In a series circuit, components are connected end-to-end, and the same current flows through each component. In a parallel circuit, components are connected across common points, and the voltage across each component is the same.");
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Power in an Electric Circuit</h2> 
+        <img src="power-electric-circuit.jpeg" alt="Card Image" class="default-image" onclick="calculatePower()">
+        <script>
+            function calculatePower() {
+                // Get input for the voltage and current
+                var voltage = prompt('Enter the voltage (in V):');
+                var current = prompt('Enter the current (in A):');
+    
+                // Convert the inputs to numbers
+                voltage = parseFloat(voltage);
+                current = parseFloat(current);
+    
+                // Calculate the power using the formula P = V * I
+                var power = voltage * current;
+    
+                // Display the result in an alert window
+                alert('The power in the electric circuit is: ' + power.toFixed(2) + ' W');
+            }
+        </script>    
+    </div>
+
+    <!--UNIT 3 ENDS-->
+    <!--Moving Charges and Magnetism-->
+
+    <div class="grid-item">
+        <h2 class="card-heading">Magnetic Field</h2> 
+        <img src="magnetic-field.jpeg" alt="Card Image" class="default-image" onclick="calculateMagneticField()">
+        <script>
+            function calculateMagneticField() {
+                // Get input for the magnetic force and charge
+                var magneticForce = prompt('Enter the magnetic force (in N):');
+                var charge = prompt('Enter the charge (in C):');
+    
+                // Convert the inputs to numbers
+                magneticForce = parseFloat(magneticForce);
+                charge = parseFloat(charge);
+    
+                // Calculate the magnetic field using the formula B = F / (q * v)
+                var magneticField = magneticForce / charge;
+    
+                // Display the result in an alert window
+                alert('The magnetic field is: ' + magneticField.toFixed(2) + ' T');
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Force on a Moving Charge in a Magnetic Field</h2> 
+        <img src="force-on-moving-charge.jpeg" alt="Card Image" class="default-image" onclick="calculateForceOnMovingCharge()">
+        <script>
+            function calculateForceOnMovingCharge() {
+                // Get input for the charge, velocity, and magnetic field
+                var charge = prompt('Enter the charge (in C):');
+                var velocity = prompt('Enter the velocity (in m/s):');
+                var magneticField = prompt('Enter the magnetic field (in T):');
+    
+                // Convert the inputs to numbers
+                charge = parseFloat(charge);
+                velocity = parseFloat(velocity);
+                magneticField = parseFloat(magneticField);
+    
+                // Calculate the force using the formula F = q * v * B
+                var force = charge * velocity * magneticField;
+    
+                // Display the result in an alert window
+                alert('The force on the moving charge is: ' + force.toFixed(2) + ' N');
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Force on a Current-Carrying Conductor in a Magnetic Field</h2> 
+        <img src="force-on-current-carrying-conductor.jpeg" alt="Card Image" class="default-image" onclick="calculateForceOnCurrentConductor()">
+        <script>
+            function calculateForceOnCurrentConductor() {
+                // Get input for the current, length of the conductor, and magnetic field
+                var current = prompt('Enter the current (in A):');
+                var length = prompt('Enter the length of the conductor (in m):');
+                var magneticField = prompt('Enter the magnetic field (in T):');
+    
+                // Convert the inputs to numbers
+                current = parseFloat(current);
+                length = parseFloat(length);
+                magneticField = parseFloat(magneticField);
+    
+                // Calculate the force using the formula F = I * L * B
+                var force = current * length * magneticField;
+    
+                // Display the result in an alert window
+                alert('The force on the current-carrying conductor is: ' + force.toFixed(2) + ' N');
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Torque on a Current Loop in a Magnetic Field</h2> 
+        <img src="torque-on-current-loop.jpeg" alt="Card Image" class="default-image" onclick="calculateTorqueOnCurrentLoop()">
+        <script>
+            function calculateTorqueOnCurrentLoop() {
+                // Get input for the current, area of the loop, magnetic field, and angle
+                var current = prompt('Enter the current (in A):');
+                var area = prompt('Enter the area of the loop (in m²):');
+                var magneticField = prompt('Enter the magnetic field (in T):');
+                var angle = prompt('Enter the angle between the magnetic field and the normal to the loop (in degrees):');
+    
+                // Convert the inputs to numbers
+                current = parseFloat(current);
+                area = parseFloat(area);
+                magneticField = parseFloat(magneticField);
+                angle = parseFloat(angle);
+    
+                // Convert the angle from degrees to radians
+                var angleRadians = (Math.PI / 180) * angle;
+    
+                // Calculate the torque using the formula τ = I * A * B * sin(theta)
+                var torque = current * area * magneticField * Math.sin(angleRadians);
+    
+                // Display the result in an alert window
+                alert('The torque on the current loop is: ' + torque.toFixed(2) + ' N·m');
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Magnetic Moment of a Current Loop</h2> 
+        <img src="magnetic-moment-current-loop.jpeg" alt="Card Image" class="default-image" onclick="calculateMagneticMoment()">
+        <script>
+            function calculateMagneticMoment() {
+                // Get input for the current and area of the loop
+                var current = prompt('Enter the current (in A):');
+                var area = prompt('Enter the area of the loop (in m²):');
+    
+                // Convert the inputs to numbers
+                current = parseFloat(current);
+                area = parseFloat(area);
+    
+                // Calculate the magnetic moment using the formula μ = I * A
+                var magneticMoment = current * area;
+    
+                // Display the result in an alert window
+                alert('The magnetic moment of the current loop is: ' + magneticMoment.toFixed(2) + ' A·m²');
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Magnetic Field Due to a Straight Current-Carrying Conductor</h2> 
+        <img src="magnetic-field-straight-conductor.jpeg" alt="Card Image" class="default-image" onclick="calculateMagneticFieldStraightConductor()">
+        <script>
+            function calculateMagneticFieldStraightConductor() {
+                // Get input for the current and distance from the conductor
+                var current = prompt('Enter the current (in A):');
+                var distance = prompt('Enter the distance from the conductor (in m):');
+    
+                // Convert the inputs to numbers
+                current = parseFloat(current);
+                distance = parseFloat(distance);
+    
+                // Calculate the magnetic field using the formula B = (μ₀ / (2 * π)) * (I / r)
+                var magneticField = (4e-7 * Math.PI * current) / (2 * Math.PI * distance);
+    
+                // Display the result in an alert window
+                alert('The magnetic field due to the straight current-carrying conductor is: ' + magneticField.toFixed(2) + ' T');
+            }
+        </script>    
+    </div>
+    
+    <div class="grid-item">
+        <h2 class="card-heading">Magnetic Field Due to a Solenoid</h2> 
+        <img src="magnetic-field-solenoid.jpeg" alt="Card Image" class="default-image" onclick="calculateMagneticFieldSolenoid()">
+        <script>
+            function calculateMagneticFieldSolenoid() {
+                // Get input for the number of turns, current, and length of the solenoid
+                var turns = prompt('Enter the number of turns in the solenoid:');
+                var current = prompt('Enter the current (in A):');
+                var length = prompt('Enter the length of the solenoid (in m):');
+    
+                // Convert the inputs to numbers
+                turns = parseInt(turns);
+                current = parseFloat(current);
+                length = parseFloat(length);
+    
+                // Calculate the magnetic field using the formula B = (μ₀ * n * I)
+                var magneticField = (4e-7 * turns * current) / length;
+    
+                // Display the result in an alert window
+                alert('The magnetic field due to the solenoid is: ' + magneticField.toFixed(2) + ' T');
+            }
+        </script>    
+    </div>
+    
+    <div class="grid-item">
+        <h2 class="card-heading">Magnetic Field Due to a Toroid</h2> 
+        <img src="magnetic-field-toroid.jpeg" alt="Card Image" class="default-image" onclick="calculateMagneticFieldToroid()">
+        <script>
+            function calculateMagneticFieldToroid() {
+                // Get input for the number of turns, current, radius, and minor radius of the toroid
+                var turns = prompt('Enter the number of turns in the toroid:');
+                var current = prompt('Enter the current (in A):');
+                var radius = prompt('Enter the radius of the toroid (in m):');
+                var minorRadius = prompt('Enter the minor radius of the toroid (in m):');
+    
+                // Convert the inputs to numbers
+                turns = parseInt(turns);
+                current = parseFloat(current);
+                radius = parseFloat(radius);
+                minorRadius = parseFloat(minorRadius);
+    
+                // Calculate the magnetic field using the formula B = (μ₀ * n * I)
+                var magneticField = (4e-7 * turns * current) / (2 * Math.PI * minorRadius);
+    
+                // Display the result in an alert window
+                alert('The magnetic field due to the toroid is: ' + magneticField.toFixed(2) + ' T');
+            }
+        </script>    
+    </div>
+    
+    <div class="grid-item">
+        <h2 class="card-heading">Biot-Savart Law</h2> 
+        <img src="biot-savart-law.jpeg" alt="Card Image" class="default-image" onclick="calculateBiotSavartLaw()">
+        <script>
+            function calculateBiotSavartLaw() {
+                // Get input for the current, length, and distance from the current element
+                var current = prompt('Enter the current (in A):');
+                var length = prompt('Enter the length of the current element (in m):');
+                var distance = prompt('Enter the distance from the current element (in m):');
+    
+                // Convert the inputs to numbers
+                current = parseFloat(current);
+                length = parseFloat(length);
+                distance = parseFloat(distance);
+    
+                // Calculate the magnetic field using the Biot-Savart Law formula
+                var magneticField = (4e-7 * current * length) / (2 * Math.PI * distance);
+    
+                // Display the result in an alert window
+                alert('The magnetic field using the Biot-Savart Law is: ' + magneticField.toFixed(2) + ' T');
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Ampere's Law</h2> 
+        <img src="amperes-law.jpeg" alt="Card Image" class="default-image" onclick="explainAmperesLaw()">
+        <script>
+            function explainAmperesLaw() {
+                // Display information about Ampere's Law in an alert window
+                alert("Ampere's Law relates the magnetic field around a closed loop to the electric current passing through the loop. It is often used to calculate the magnetic field produced by current-carrying conductors.");
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Lenz's Law</h2> 
+        <img src="lenzs-law.jpeg" alt="Card Image" class="default-image" onclick="explainLenzsLaw()">
+        <script>
+            function explainLenzsLaw() {
+                // Display information about Lenz's Law in an alert window
+                alert("Lenz's Law is a consequence of Faraday's Law and states that the induced electromotive force (EMF) always produces a current whose magnetic field opposes the original change in magnetic flux. This law is a manifestation of the conservation of energy.");
+            }
+        </script>    
+    </div>
+    
+    <div class="grid-item">
+        <h2 class="card-heading">Self-induction</h2> 
+        <img src="self-induction.jpeg" alt="Card Image" class="default-image" onclick="explainSelfInduction()">
+        <script>
+            function explainSelfInduction() {
+                // Display information about Self-induction in an alert window
+                alert("Self-induction is the phenomenon where a changing current in a coil induces an electromotive force (EMF) in the same coil. This induced EMF opposes the original change in current, following Lenz's Law.");
+            }
+        </script>    
+    </div>
+    
+    <div class="grid-item">
+        <h2 class="card-heading">Mutual Induction</h2> 
+        <img src="mutual-induction.jpeg" alt="Card Image" class="default-image" onclick="explainMutualInduction()">
+        <script>
+            function explainMutualInduction() {
+                // Display information about Mutual Induction in an alert window
+                alert("Mutual Induction is the phenomenon where a changing current in one coil induces an electromotive force (EMF) in a neighboring coil. This is the principle behind the operation of transformers.");
+            }
+        </script>    
+    </div>
+    
+    <div class="grid-item">
+        <h2 class="card-heading">Inductance</h2> 
+        <img src="inductance.jpeg" alt="Card Image" class="default-image" onclick="explainInductance()">
+        <script>
+            function explainInductance() {
+                // Display information about Inductance in an alert window
+                alert("Inductance is a property of an electrical circuit or component that opposes a change in current. It is measured in henries (H) and depends on the number of turns in a coil and the permeability of the material.");
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Energy Stored in an Inductor</h2> 
+        <img src="energy-stored-inductor.jpeg" alt="Card Image" class="default-image" onclick="calculateEnergyStoredInductor()">
+        <script>
+            function calculateEnergyStoredInductor() {
+                // Get input for the inductance and current
+                var inductance = prompt('Enter the inductance (in H):');
+                var current = prompt('Enter the current (in A):');
+    
+                // Convert the inputs to numbers
+                inductance = parseFloat(inductance);
+                current = parseFloat(current);
+    
+                // Calculate the energy stored in the inductor using the formula E = 0.5 * L * I^2
+                var energyStored = 0.5 * inductance * Math.pow(current, 2);
+    
+                // Display the result in an alert window
+                alert('The energy stored in the inductor is: ' + energyStored.toFixed(2) + ' joules');
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">AC Circuits</h2> 
+        <img src="ac-circuits.jpeg" alt="Card Image" class="default-image" onclick="explainACCircuits()">
+        <script>
+            function explainACCircuits() {
+                // Display information about AC Circuits in an alert window
+                alert("AC (Alternating Current) circuits involve the flow of electric current that periodically reverses direction. AC is commonly used in household electricity and is characterized by sinusoidal voltage and current waveforms.");
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">RMS Value</h2> 
+        <img src="rms-value.jpeg" alt="Card Image" class="default-image" onclick="calculateRMSValue()">
+        <script>
+            function calculateRMSValue() {
+                // Get input for the alternating current values
+                var acValues = prompt('Enter the values of the alternating current (separated by commas):');
+    
+                // Convert the input to an array of numbers
+                var currentValues = acValues.split(',').map(function (value) {
+                    return parseFloat(value);
+                });
+    
+                // Calculate the RMS (Root Mean Square) value using the formula RMS = sqrt((1/N) * (I1^2 + I2^2 + ... + IN^2))
+                var sumOfSquares = currentValues.reduce(function (accumulator, value) {
+                    return accumulator + Math.pow(value, 2);
+                }, 0);
+    
+                var rmsValue = Math.sqrt((1 / currentValues.length) * sumOfSquares);
+    
+                // Display the result in an alert window
+                alert('The RMS value of the alternating current is: ' + rmsValue.toFixed(2) + ' A');
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Power in AC Circuits</h2> 
+        <img src="power-ac-circuits.jpeg" alt="Card Image" class="default-image" onclick="calculatePowerACCircuits()">
+        <script>
+            function calculatePowerACCircuits() {
+                // Get input for the voltage, current, and power factor
+                var voltage = prompt('Enter the voltage (in V):');
+                var current = prompt('Enter the current (in A):');
+                var powerFactor = prompt('Enter the power factor:');
+    
+                // Convert the inputs to numbers
+                voltage = parseFloat(voltage);
+                current = parseFloat(current);
+                powerFactor = parseFloat(powerFactor);
+    
+                // Calculate the power in AC circuits using the formula P = V * I * power factor
+                var power = voltage * current * powerFactor;
+    
+                // Display the result in an alert window
+                alert('The power in the AC circuit is: ' + power.toFixed(2) + ' watts');
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Transformer</h2> 
+        <img src="transformer.jpeg" alt="Card Image" class="default-image" onclick="explainTransformer()">
+        <script>
+            function explainTransformer() {
+                // Display information about Transformers in an alert window
+                alert("A transformer is an electrical device that transfers electrical energy between two or more circuits through electromagnetic induction. It consists of two coils (windings) that are magnetically coupled and operates on the principle of mutual induction.");
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Magnetic Properties of Materials</h2> 
+        <img src="magnetic-properties-materials.jpeg" alt="Card Image" class="default-image" onclick="explainMagneticPropertiesMaterials()">
+        <script>
+            function explainMagneticPropertiesMaterials() {
+                // Display information about Magnetic Properties of Materials in an alert window
+                alert("Magnetic properties of materials describe how materials respond to magnetic fields. Materials can be classified into categories such as diamagnetic, paramagnetic, and ferromagnetic based on their magnetic behavior.");
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Diamagnetism</h2> 
+        <img src="diamagnetism.jpeg" alt="Card Image" class="default-image" onclick="explainDiamagnetism()">
+        <script>
+            function explainDiamagnetism() {
+                // Display information about Diamagnetism in an alert window
+                alert("Diamagnetic materials are those that are not attracted to a magnet. They have all paired electrons, resulting in no net magnetic moment.");
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Paramagnetism</h2> 
+        <img src="paramagnetism.jpeg" alt="Card Image" class="default-image" onclick="explainParamagnetism()">
+        <script>
+            function explainParamagnetism() {
+                // Display information about Paramagnetism in an alert window
+                alert("Paramagnetic materials are weakly attracted to a magnet. They have unpaired electrons, resulting in a net magnetic moment when placed in a magnetic field.");
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Ferromagnetism</h2> 
+        <img src="ferromagnetism.jpeg" alt="Card Image" class="default-image" onclick="explainFerromagnetism()">
+        <script>
+            function explainFerromagnetism() {
+                // Display information about Ferromagnetism in an alert window
+                alert("Ferromagnetic materials are strongly attracted to a magnet and can retain their magnetization after the external magnetic field is removed. They have aligned magnetic domains.");
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Hysteresis</h2> 
+        <img src="hysteresis.jpeg" alt="Card Image" class="default-image" onclick="explainHysteresis()">
+        <script>
+            function explainHysteresis() {
+                // Display information about Hysteresis in an alert window
+                alert("Hysteresis is the lagging of the magnetic induction behind the magnetizing force in a material. It is observed in ferromagnetic materials and is represented by a hysteresis loop.");
+            }
+        </script>    
+    </div>
+    
+    <div class="grid-item">
+        <h2 class="card-heading">Bohr Magneton</h2> 
+        <img src="bohr-magneton.jpeg" alt="Card Image" class="default-image" onclick="explainBohrMagneton()">
+        <script>
+            function explainBohrMagneton() {
+                // Display information about Bohr Magneton in an alert window
+                alert("Bohr Magneton is a physical constant representing the magnetic moment of an electron. It is named after Niels Bohr and is approximately equal to 9.274 x 10^-24 J/T.");
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Magnetic Field Intensity Inside a Solenoid</h2> 
+        <img src="magnetic-field-intensity-solenoid.jpeg" alt="Card Image" class="default-image" onclick="calculateMagneticFieldIntensitySolenoid()">
+        <script>
+            function calculateMagneticFieldIntensitySolenoid() {
+                // Get input for the number of turns per unit length and current in the solenoid
+                var turnsPerUnitLength = prompt('Enter the number of turns per unit length (in turns/m):');
+                var currentSolenoid = prompt('Enter the current in the solenoid (in A):');
+    
+                // Convert the inputs to numbers
+                turnsPerUnitLength = parseFloat(turnsPerUnitLength);
+                currentSolenoid = parseFloat(currentSolenoid);
+    
+                // Calculate the magnetic field intensity inside the solenoid using the formula H = N * I
+                var magneticFieldIntensity = turnsPerUnitLength * currentSolenoid;
+    
+                // Display the result in an alert window
+                alert('The magnetic field intensity inside the solenoid is: ' + magneticFieldIntensity.toFixed(2) + ' A/m');
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Magnetic Field Intensity Inside a Toroid</h2> 
+        <img src="magnetic-field-intensity-toroid.jpeg" alt="Card Image" class="default-image" onclick="calculateMagneticFieldIntensityToroid()">
+        <script>
+            function calculateMagneticFieldIntensityToroid() {
+                // Get input for the number of turns and current in the toroid
+                var turnsToroid = prompt('Enter the number of turns in the toroid:');
+                var currentToroid = prompt('Enter the current in the toroid (in A):');
+    
+                // Convert the inputs to numbers
+                turnsToroid = parseFloat(turnsToroid);
+                currentToroid = parseFloat(currentToroid);
+    
+                // Calculate the magnetic field intensity inside the toroid using the formula H = (N * I) / (2 * π * r)
+                var magneticFieldIntensity = (turnsToroid * currentToroid) / (2 * Math.PI);
+    
+                // Display the result in an alert window
+                alert('The magnetic field intensity inside the toroid is: ' + magneticFieldIntensity.toFixed(2) + ' A/m');
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Magnetic Flux</h2> 
+        <img src="magnetic-flux.jpeg" alt="Card Image" class="default-image" onclick="calculateMagneticFlux()">
+        <script>
+            function calculateMagneticFlux() {
+                // Get input for the magnetic field strength and area
+                var magneticFieldStrength = prompt('Enter the magnetic field strength (in T):');
+                var area = prompt('Enter the area (in m²):');
+    
+                // Convert the inputs to numbers
+                magneticFieldStrength = parseFloat(magneticFieldStrength);
+                area = parseFloat(area);
+    
+                // Calculate the magnetic flux using the formula Φ = B * A
+                var magneticFlux = magneticFieldStrength * area;
+    
+                // Display the result in an alert window
+                alert('The magnetic flux is: ' + magneticFlux.toFixed(2) + ' Wb');
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Magnetic Dipole Moment</h2> 
+        <img src="magnetic-dipole-moment.jpeg" alt="Card Image" class="default-image" onclick="calculateMagneticDipoleMoment()">
+        <script>
+            function calculateMagneticDipoleMoment() {
+                // Get input for the magnetic pole strength and separation
+                var poleStrength = prompt('Enter the magnetic pole strength (in A.m):');
+                var separation = prompt('Enter the separation between poles (in m):');
+    
+                // Convert the inputs to numbers
+                poleStrength = parseFloat(poleStrength);
+                separation = parseFloat(separation);
+    
+                // Calculate the magnetic dipole moment using the formula m = pole strength * separation
+                var magneticDipoleMoment = poleStrength * separation;
+    
+                // Display the result in an alert window
+                alert('The magnetic dipole moment is: ' + magneticDipoleMoment.toFixed(2) + ' A.m²');
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Torque on a Magnetic Dipole</h2> 
+        <img src="torque-magnetic-dipole.jpeg" alt="Card Image" class="default-image" onclick="calculateTorqueMagneticDipole()">
+        <script>
+            function calculateTorqueMagneticDipole() {
+                // Get input for the magnetic dipole moment, magnetic field strength, and the angle between them
+                var magneticDipoleMomentTorque = prompt('Enter the magnetic dipole moment (in A.m²):');
+                var magneticFieldStrengthTorque = prompt('Enter the magnetic field strength (in T):');
+                var angleTorque = prompt('Enter the angle between the magnetic dipole moment and magnetic field (in degrees):');
+    
+                // Convert the inputs to numbers
+                magneticDipoleMomentTorque = parseFloat(magneticDipoleMomentTorque);
+                magneticFieldStrengthTorque = parseFloat(magneticFieldStrengthTorque);
+                angleTorque = parseFloat(angleTorque);
+    
+                // Convert the angle to radians
+                var angleRadians = (angleTorque * Math.PI) / 180;
+    
+                // Calculate the torque on a magnetic dipole using the formula τ = m * B * sin(θ)
+                var torqueMagneticDipole = magneticDipoleMomentTorque * magneticFieldStrengthTorque * Math.sin(angleRadians);
+    
+                // Display the result in an alert window
+                alert('The torque on the magnetic dipole is: ' + torqueMagneticDipole.toFixed(2) + ' N.m');
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Magnetization</h2> 
+        <img src="magnetization.jpeg" alt="Card Image" class="default-image" onclick="calculateMagnetization()">
+        <script>
+            function calculateMagnetization() {
+                // Get input for the magnetic dipole moment and volume of the material
+                var magneticDipoleMomentMagnetization = prompt('Enter the magnetic dipole moment (in A.m²):');
+                var volumeMagnetization = prompt('Enter the volume of the material (in m³):');
+    
+                // Convert the inputs to numbers
+                magneticDipoleMomentMagnetization = parseFloat(magneticDipoleMomentMagnetization);
+                volumeMagnetization = parseFloat(volumeMagnetization);
+    
+                // Calculate the magnetization using the formula M = m / V
+                var magnetization = magneticDipoleMomentMagnetization / volumeMagnetization;
+    
+                // Display the result in an alert window
+                alert('The magnetization of the material is: ' + magnetization.toFixed(2) + ' A/m');
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Gauss's Law for Magnetism</h2> 
+        <img src="gausss-law-magnetism.jpeg" alt="Card Image" class="default-image" onclick="explainGaussLawMagnetism()">
+        <script>
+            function explainGaussLawMagnetism() {
+                // Display information about Gauss's Law for Magnetism in an alert window
+                alert("Gauss's Law for Magnetism states that the magnetic flux through any closed surface is zero. It is a fundamental principle of magnetostatics and is analogous to Gauss's Law for Electric Fields.");
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Ampere's Law in Magnetized Materials</h2> 
+        <img src="amperes-law-magnetized-materials.jpeg" alt="Card Image" class="default-image" onclick="explainAmperesLawMagnetizedMaterials()">
+        <script>
+            function explainAmperesLawMagnetizedMaterials() {
+                // Display information about Ampere's Law in Magnetized Materials in an alert window
+                alert("Ampere's Law in Magnetized Materials describes the magnetic field produced by a current in the presence of magnetized materials. It includes the contributions from both the current and the magnetization of the material.");
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Magnetic Permeability</h2> 
+        <img src="magnetic-permeability.jpeg" alt="Card Image" class="default-image" onclick="explainMagneticPermeability()">
+        <script>
+            function explainMagneticPermeability() {
+                // Display information about Magnetic Permeability in an alert window
+                alert("Magnetic Permeability is a measure of a material's ability to conduct magnetic flux. It is denoted by the symbol μ and is a key parameter in determining the magnetic properties of materials.");
+            }
+        </script>    
+    </div>
+    
+    <div class="grid-item">
+        <h2 class="card-heading">Relative Permeability</h2> 
+        <img src="relative-permeability.jpeg" alt="Card Image" class="default-image" onclick="explainRelativePermeability()">
+        <script>
+            function explainRelativePermeability() {
+                // Display information about Relative Permeability in an alert window
+                alert("Relative Permeability is the ratio of the permeability of a material to the permeability of free space (vacuum). It is a dimensionless quantity and is often used to compare the magnetic properties of different materials.");
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Magnetic Susceptibility</h2> 
+        <img src="magnetic-susceptibility.jpeg" alt="Card Image" class="default-image" onclick="explainMagneticSusceptibility()">
+        <script>
+            function explainMagneticSusceptibility() {
+                // Display information about Magnetic Susceptibility in an alert window
+                alert("Magnetic Susceptibility is a measure of how easily a material can be magnetized in the presence of an external magnetic field. It is denoted by the symbol χ and is a dimensionless quantity.");
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Domain Theory of Ferromagnetism</h2> 
+        <img src="domain-theory-ferromagnetism.jpeg" alt="Card Image" class="default-image" onclick="explainDomainTheoryFerromagnetism()">
+        <script>
+            function explainDomainTheoryFerromagnetism() {
+                // Display information about Domain Theory of Ferromagnetism in an alert window
+                alert("Domain Theory of Ferromagnetism explains the behavior of ferromagnetic materials at the microscopic level. It involves the concept of magnetic domains, regions in which magnetic moments align in the same direction.");
+            }
+        </script>    
+    </div>
+    
+    <div class="grid-item">
+        <h2 class="card-heading">Curie Temperature</h2> 
+        <img src="curie-temperature.jpeg" alt="Card Image" class="default-image" onclick="explainCurieTemperature()">
+        <script>
+            function explainCurieTemperature() {
+                // Display information about Curie Temperature in an alert window
+                alert("Curie Temperature is the temperature at which a ferromagnetic or ferrimagnetic material undergoes a phase transition, losing its permanent magnetic properties. Above this temperature, the material becomes paramagnetic.");
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Applications of Ferromagnetic Materials</h2> 
+        <img src="applications-ferromagnetic-materials.jpeg" alt="Card Image" class="default-image" onclick="explainApplicationsFerromagneticMaterials()">
+        <script>
+            function explainApplicationsFerromagneticMaterials() {
+                // Display information about Applications of Ferromagnetic Materials in an alert window
+                alert("Ferromagnetic materials find various applications, including in the production of magnets, magnetic sensors, magnetic storage devices (e.g., hard drives), transformers, and electric motors.");
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Faraday's Law of Electromagnetic Induction</h2> 
+        <img src="faradays-law.jpeg" alt="Card Image" class="default-image" onclick="explainFaradaysLaw()">
+        <script>
+            function explainFaradaysLaw() {
+                // Display information about Faraday's Law of Electromagnetic Induction in an alert window
+                alert("Faraday's Law of Electromagnetic Induction states that a change in magnetic flux through a coil induces an electromotive force (EMF) in the coil. This phenomenon is the basis for generating electrical power in generators.");
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Faraday's Law of Electromagnetic Induction</h2> 
+        <img src="faradays-law.jpeg" alt="Card Image" class="default-image" onclick="explainFaradaysLaw()">
+        <script>
+            function explainFaradaysLaw() {
+                // Display information about Faraday's Law of Electromagnetic Induction in an alert window
+                alert("Faraday's Law of Electromagnetic Induction states that a change in magnetic flux through a coil induces an electromotive force (EMF) in the coil. This phenomenon is the basis for generating electrical power in generators.");
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Motional EMF</h2> 
+        <img src="motional-emf.jpeg" alt="Card Image" class="default-image" onclick="explainMotionalEMF()">
+        <script>
+            function explainMotionalEMF() {
+                // Display information about Motional EMF in an alert window
+                alert("Motional EMF is induced when a conductor moves through a magnetic field, resulting in a changing magnetic flux. The induced EMF is proportional to the speed of the motion, the length of the conductor, and the strength of the magnetic field.");
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Induced EMF in a Closed Loop</h2> 
+        <img src="induced-emf-closed-loop.jpeg" alt="Card Image" class="default-image" onclick="explainInducedEMFClosedLoop()">
+        <script>
+            function explainInducedEMFClosedLoop() {
+                // Display information about Induced EMF in a Closed Loop in an alert window
+                alert("An induced electromotive force (EMF) is produced in a closed loop when there is a change in magnetic flux through the loop. The magnitude of the induced EMF is proportional to the rate of change of magnetic flux.");
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Self-Induction</h2> 
+        <img src="self-induction.jpeg" alt="Card Image" class="default-image" onclick="explainSelfInduction()">
+        <script>
+            function explainSelfInduction() {
+                // Display information about Self-Induction in an alert window
+                alert("Self-Induction is the phenomenon where a changing current in a coil induces an electromotive force (EMF) in the same coil. This induced EMF opposes the original change in current, following Lenz's Law.");
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Mutual Induction</h2> 
+        <img src="mutual-induction.jpeg" alt="Card Image" class="default-image" onclick="explainMutualInduction()">
+        <script>
+            function explainMutualInduction() {
+                // Display information about Mutual Induction in an alert window
+                alert("Mutual Induction is the phenomenon where a changing current in one coil induces an electromotive force (EMF) in a neighboring coil. This is the principle behind the operation of transformers.");
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Inductance</h2> 
+        <img src="inductance.jpeg" alt="Card Image" class="default-image" onclick="explainInductance()">
+        <script>
+            function explainInductance() {
+                // Display information about Inductance in an alert window
+                alert("Inductance is a property of an electrical circuit or component that opposes a change in current. It is measured in henries (H) and depends on the number of turns in a coil and the permeability of the material.");
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Energy Stored in an Inductor</h2> 
+        <img src="energy-stored-inductor.jpeg" alt="Card Image" class="default-image" onclick="calculateEnergyStoredInductor()">
+        <script>
+            function calculateEnergyStoredInductor() {
+                // Get input for the inductance and current
+                var inductance = prompt('Enter the inductance (in H):');
+                var current = prompt('Enter the current (in A):');
+    
+                // Convert the inputs to numbers
+                inductance = parseFloat(inductance);
+                current = parseFloat(current);
+    
+                // Calculate the energy stored in the inductor using the formula E = 0.5 * L * I^2
+                var energyStored = 0.5 * inductance * Math.pow(current, 2);
+    
+                // Display the result in an alert window
+                alert('The energy stored in the inductor is: ' + energyStored.toFixed(2) + ' joules');
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">AC Circuits</h2> 
+        <img src="ac-circuits.jpeg" alt="Card Image" class="default-image" onclick="explainACCircuits()">
+        <script>
+            function explainACCircuits() {
+                // Display information about AC Circuits in an alert window
+                alert("AC (Alternating Current) circuits involve the flow of electric current that periodically reverses direction. AC is commonly used in household electricity and is characterized by sinusoidal voltage and current waveforms.");
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">RMS Value</h2> 
+        <img src="rms-value.jpeg" alt="Card Image" class="default-image" onclick="calculateRMSValue()">
+        <script>
+            function calculateRMSValue() {
+                // Get input for the alternating current values
+                var acValues = prompt('Enter the values of the alternating current (separated by commas):');
+    
+                // Convert the input to an array of numbers
+                var currentValues = acValues.split(',').map(function (value) {
+                    return parseFloat(value);
+                });
+    
+                // Calculate the RMS (Root Mean Square) value using the formula RMS = sqrt((1/N) * (I1^2 + I2^2 + ... + IN^2))
+                var sumOfSquares = currentValues.reduce(function (accumulator, value) {
+                    return accumulator + Math.pow(value, 2);
+                }, 0);
+    
+                var rmsValue = Math.sqrt((1 / currentValues.length) * sumOfSquares);
+    
+                // Display the result in an alert window
+                alert('The RMS value of the alternating current is: ' + rmsValue.toFixed(2) + ' A');
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Power in AC Circuits</h2> 
+        <img src="power-ac-circuits.jpeg" alt="Card Image" class="default-image" onclick="calculatePowerACCircuits()">
+        <script>
+            function calculatePowerACCircuits() {
+                // Get input for the voltage, current, and power factor
+                var voltage = prompt('Enter the voltage (in V):');
+                var current = prompt('Enter the current (in A):');
+                var powerFactor = prompt('Enter the power factor:');
+    
+                // Convert the inputs to numbers
+                voltage = parseFloat(voltage);
+                current = parseFloat(current);
+                powerFactor = parseFloat(powerFactor);
+    
+                // Calculate the power in AC circuits using the formula P = V * I * power factor
+                var power = voltage * current * powerFactor;
+    
+                // Display the result in an alert window
+                alert('The power in the AC circuit is: ' + power.toFixed(2) + ' watts');
+            }
+        </script>    
+    </div>
+
+    <!--end-->
+
+    <div class="grid-item">
+        <h2 class="card-heading">Alternating Current (AC)</h2> 
+        <img src="alternating-current.jpeg" alt="Card Image" class="default-image" onclick="explainAC()">
+        <script>
+            function explainAC() {
+                // Display information about Alternating Current (AC) in an alert window
+                alert("Alternating Current (AC) is an electric current that periodically reverses direction. It is commonly used for power distribution due to its ability to be easily transformed and transmitted over long distances.");
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Characteristics of AC</h2> 
+        <img src="characteristics-ac.jpeg" alt="Card Image" class="default-image" onclick="explainACCharacteristics()">
+        <script>
+            function explainACCharacteristics() {
+                // Display information about Characteristics of AC in an alert window
+                alert("Characteristics of AC include its ability to change direction, periodic variation, and the presence of parameters such as amplitude, frequency, and phase. AC is characterized by sinusoidal waveforms in many applications.");
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Generation of AC</h2> 
+        <img src="generation-ac.jpeg" alt="Card Image" class="default-image" onclick="explainACGeneration()">
+        <script>
+            function explainACGeneration() {
+                // Display information about Generation of AC in an alert window
+                alert("AC is generated using devices called alternators or generators. These devices convert mechanical energy into electrical energy and produce AC. Power plants and generators are common sources of AC.");
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Sinusoidal AC</h2> 
+        <img src="sinusoidal-ac.jpeg" alt="Card Image" class="default-image" onclick="explainSinusoidalAC()">
+        <script>
+            function explainSinusoidalAC() {
+                // Display information about Sinusoidal AC in an alert window
+                alert("Sinusoidal AC is characterized by a sinusoidal waveform, which is a smooth, repetitive oscillation. The voltage or current in a sinusoidal AC circuit varies sinusoidally with time.");
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Amplitude and Peak Value</h2> 
+        <img src="amplitude-peak-value.jpeg" alt="Card Image" class="default-image" onclick="explainAmplitudePeakValue()">
+        <script>
+            function explainAmplitudePeakValue() {
+                // Display information about Amplitude and Peak Value in an alert window
+                alert("Amplitude is the maximum value of the alternating current or voltage in an AC waveform. The peak value is the maximum positive or negative excursion from zero.");
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Frequency</h2> 
+        <img src="frequency.jpeg" alt="Card Image" class="default-image" onclick="explainFrequency()">
+        <script>
+            function explainFrequency() {
+                // Display information about Frequency in an alert window
+                alert("Frequency is the number of cycles per unit of time in an AC waveform. It is measured in hertz (Hz), and one hertz is equal to one cycle per second.");
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Period</h2> 
+        <img src="period.jpeg" alt="Card Image" class="default-image" onclick="explainPeriod()">
+        <script>
+            function explainPeriod() {
+                // Display information about Period in an alert window
+                alert("Period is the reciprocal of frequency and represents the time taken for one complete cycle of an AC waveform. It is measured in seconds per cycle.");
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Phase Difference</h2> 
+        <img src="phase-difference.jpeg" alt="Card Image" class="default-image" onclick="explainPhaseDifference()">
+        <script>
+            function explainPhaseDifference() {
+                // Display information about Phase Difference in an alert window
+                alert("Phase Difference represents the time shift between two AC waveforms. It is measured in degrees or radians and describes how one waveform is shifted in time relative to another.");
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Phasors</h2> 
+        <img src="phasors.jpeg" alt="Card Image" class="default-image" onclick="explainPhasors()">
+        <script>
+            function explainPhasors() {
+                // Display information about Phasors in an alert window
+                alert("Phasors are vector representations used to simplify the analysis of AC circuits. They represent the amplitude and phase of an AC waveform and are often used in complex number notation.");
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">RMS Value</h2> 
+        <img src="rms-value.jpeg" alt="Card Image" class="default-image" onclick="calculateRMSValue()">
+        <script>
+            function calculateRMSValue() {
+                // Get input for the alternating current values
+                var acValues = prompt('Enter the values of the alternating current (separated by commas):');
+    
+                // Convert the input to an array of numbers
+                var currentValues = acValues.split(',').map(function (value) {
+                    return parseFloat(value);
+                });
+    
+                // Calculate the RMS (Root Mean Square) value using the formula RMS = sqrt((1/N) * (I1^2 + I2^2 + ... + IN^2))
+                var sumOfSquares = currentValues.reduce(function (accumulator, value) {
+                    return accumulator + Math.pow(value, 2);
+                }, 0);
+    
+                var rmsValue = Math.sqrt((1 / currentValues.length) * sumOfSquares);
+    
+                // Display the result in an alert window
+                alert('The RMS value of the alternating current is: ' + rmsValue.toFixed(2) + ' A');
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Average Value</h2> 
+        <img src="average-value.jpeg" alt="Card Image" class="default-image" onclick="calculateAverageValue()">
+        <script>
+            function calculateAverageValue() {
+                // Get input for the alternating current values
+                var acValues = prompt('Enter the values of the alternating current (separated by commas):');
+    
+                // Convert the input to an array of numbers
+                var currentValues = acValues.split(',').map(function (value) {
+                    return parseFloat(value);
+                });
+    
+                // Calculate the average value using the formula Average = (1/N) * (I1 + I2 + ... + IN)
+                var sum = currentValues.reduce(function (accumulator, value) {
+                    return accumulator + value;
+                }, 0);
+    
+                var averageValue = (1 / currentValues.length) * sum;
+    
+                // Display the result in an alert window
+                alert('The average value of the alternating current is: ' + averageValue.toFixed(2) + ' A');
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Power in AC Circuits</h2> 
+        <img src="power-ac-circuits.jpeg" alt="Card Image" class="default-image" onclick="calculatePowerACCircuits()">
+        <script>
+            function calculatePowerACCircuits() {
+                // Get input for the voltage, current, and power factor
+                var voltage = prompt('Enter the voltage (in V):');
+                var current = prompt('Enter the current (in A):');
+                var powerFactor = prompt('Enter the power factor:');
+    
+                // Convert the inputs to numbers
+                voltage = parseFloat(voltage);
+                current = parseFloat(current);
+                powerFactor = parseFloat(powerFactor);
+    
+                // Calculate the power in AC circuits using the formula P = V * I * power factor
+                var power = voltage * current * powerFactor;
+    
+                // Display the result in an alert window
+                alert('The power in the AC circuit is: ' + power.toFixed(2) + ' watts');
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Series AC Circuits</h2> 
+        <img src="series-ac-circuits.jpeg" alt="Card Image" class="default-image" onclick="explainSeriesACCircuits()">
+        <script>
+            function explainSeriesACCircuits() {
+                // Display information about Series AC Circuits in an alert window
+                alert("Series AC Circuits contain elements (resistors, inductors, and capacitors) connected in series. The total impedance is the sum of individual impedances, and the current is the same across all elements.");
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Parallel AC Circuits</h2> 
+        <img src="parallel-ac-circuits.jpeg" alt="Card Image" class="default-image" onclick="explainParallelACCircuits()">
+        <script>
+            function explainParallelACCircuits() {
+                // Display information about Parallel AC Circuits in an alert window
+                alert("Parallel AC Circuits contain elements (resistors, inductors, and capacitors) connected in parallel. The voltage is the same across all elements, and the total current is the sum of individual branch currents.");
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Resonance</h2> 
+        <img src="resonance.jpeg" alt="Card Image" class="default-image" onclick="explainResonance()">
+        <script>
+            function explainResonance() {
+                // Display information about Resonance in an alert window
+                alert("Resonance occurs in AC circuits when the inductive reactance (XL) equals the capacitive reactance (XC). At resonance, the impedance is minimized, and the current is maximized.");
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">LCR Circuit</h2> 
+        <img src="lcr-circuit.jpeg" alt="Card Image" class="default-image" onclick="explainLCRCircuit()">
+        <script>
+            function explainLCRCircuit() {
+                // Display information about LCR Circuit in an alert window
+                alert("An LCR Circuit contains inductors (L), capacitors (C), and resistors (R). The behavior of the circuit is influenced by the values of inductance, capacitance, resistance, and the frequency of the AC signal.");
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Transformers</h2> 
+        <img src="transformer.jpeg" alt="Card Image" class="default-image" onclick="explainTransformer()">
+        <script>
+            function explainTransformer() {
+                // Display information about Transformers in an alert window
+                alert("A transformer is an electrical device that transfers electrical energy between two or more circuits through electromagnetic induction. It consists of two coils (windings) that are magnetically coupled and operates on the principle of mutual induction.");
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">AC Generators</h2> 
+        <img src="ac-generators.jpeg" alt="Card Image" class="default-image" onclick="explainACGenerators()">
+        <script>
+            function explainACGenerators() {
+                // Display information about AC Generators in an alert window
+                alert("AC Generators (alternators) convert mechanical energy into electrical energy by generating an alternating current. They consist of a rotor, stator, and an external power source to maintain rotation.");
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">AC Motors</h2> 
+        <img src="ac-motors.jpeg" alt="Card Image" class="default-image" onclick="explainACMotors()">
+        <script>
+            function explainACMotors() {
+                // Display information about AC Motors in an alert window
+                alert("AC Motors are devices that convert electrical energy into mechanical energy through the interaction of magnetic fields. They are widely used for various applications, including in fans, pumps, compressors, and industrial machinery.");
+            }
+        </script>    
+    </div>
+
+    <!--end-->
+    
+
+    <div class="grid-item">
+        <h2 class="card-heading">Nature of Electromagnetic Waves</h2> 
+        <img src="nature-electromagnetic-waves.jpeg" alt="Card Image" class="default-image" onclick="explainNatureElectromagneticWaves()">
+        <script>
+            function explainNatureElectromagneticWaves() {
+                // Display information about the Nature of Electromagnetic Waves in an alert window
+                alert("Electromagnetic waves are transverse waves consisting of oscillating electric and magnetic fields. They do not require a medium for propagation and travel at the speed of light. The electromagnetic spectrum includes radio waves, microwaves, infrared, visible light, ultraviolet, X-rays, and gamma rays.");
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Production of Electromagnetic Waves</h2> 
+        <img src="production-electromagnetic-waves.jpeg" alt="Card Image" class="default-image" onclick="explainProductionElectromagneticWaves()">
+        <script>
+            function explainProductionElectromagneticWaves() {
+                // Display information about the Production of Electromagnetic Waves in an alert window
+                alert("Electromagnetic waves are produced by oscillating electric charges. Common methods of production include the acceleration of electrons in antennas, the motion of charged particles in atoms, and various electronic devices such as antennas, lasers, and synchrotrons.");
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Properties of Electromagnetic Waves</h2> 
+        <img src="properties-electromagnetic-waves.jpeg" alt="Card Image" class="default-image" onclick="explainPropertiesElectromagneticWaves()">
+        <script>
+            function explainPropertiesElectromagneticWaves() {
+                // Display information about the Properties of Electromagnetic Waves in an alert window
+                alert("Properties of electromagnetic waves include wavelength, frequency, amplitude, and speed. They exhibit reflection, refraction, interference, and diffraction. Electromagnetic waves can be polarized, and their behavior is described by Maxwell's equations and the electromagnetic spectrum.");
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Polarization</h2> 
+        <img src="polarization.jpeg" alt="Card Image" class="default-image" onclick="explainPolarization()">
+        <script>
+            function explainPolarization() {
+                // Display information about Polarization in an alert window
+                alert("Polarization refers to the orientation of the electric field vector in an electromagnetic wave. Unpolarized light consists of waves with random orientations. Polarizing filters can selectively block or allow waves of a specific orientation, producing polarized light.");
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Reflection and Refraction of Electromagnetic Waves</h2> 
+        <img src="reflection-refraction-electromagnetic-waves.jpeg" alt="Card Image" class="default-image" onclick="explainReflectionRefractionElectromagneticWaves()">
+        <script>
+            function explainReflectionRefractionElectromagneticWaves() {
+                // Display information about Reflection and Refraction of Electromagnetic Waves in an alert window
+                alert("Electromagnetic waves undergo reflection when they bounce off a surface and refraction when they pass through a different medium, causing a change in direction. The angles of incidence and reflection obey the law of reflection, while refraction is governed by Snell's Law.");
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Interference of Electromagnetic Waves</h2> 
+        <img src="interference-electromagnetic-waves.jpeg" alt="Card Image" class="default-image" onclick="explainInterferenceElectromagneticWaves()">
+        <script>
+            function explainInterferenceElectromagneticWaves() {
+                // Display information about Interference of Electromagnetic Waves in an alert window
+                alert("Interference occurs when two or more electromagnetic waves combine to form a resultant wave. Constructive interference enhances the amplitude, while destructive interference reduces the amplitude. Interference is a fundamental concept in wave physics.");
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Diffraction of Electromagnetic Waves</h2> 
+        <img src="diffraction-electromagnetic-waves.jpeg" alt="Card Image" class="default-image" onclick="explainDiffractionElectromagneticWaves()">
+        <script>
+            function explainDiffractionElectromagneticWaves() {
+                // Display information about Diffraction of Electromagnetic Waves in an alert window
+                alert("Diffraction is the bending of electromagnetic waves around obstacles and the spreading of waves when they pass through small openings. The extent of diffraction depends on the wavelength of the waves and the size of the obstacle or opening.");
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Applications of Electromagnetic Waves</h2> 
+        <img src="applications-electromagnetic-waves.jpeg" alt="Card Image" class="default-image" onclick="explainApplicationsElectromagneticWaves()">
+        <script>
+            function explainApplicationsElectromagneticWaves() {
+                // Display information about Applications of Electromagnetic Waves in an alert window
+                alert("Electromagnetic waves have numerous applications, including communication (radio, TV, and mobile signals), medical imaging (X-rays, MRI), remote sensing (radar), cooking (microwaves), and many technologies such as lasers, antennas, and sensors.");
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Speed of Electromagnetic Waves in a Vacuum</h2> 
+        <img src="speed-electromagnetic-waves-vacuum.jpeg" alt="Card Image" class="default-image" onclick="explainSpeedElectromagneticWaves()">
+        <script>
+            function explainSpeedElectromagneticWaves() {
+                // Display information about the Speed of Electromagnetic Waves in a Vacuum in an alert window
+                alert("The speed of electromagnetic waves in a vacuum is approximately 299,792,458 meters per second (m/s). This speed is denoted by the symbol 'c' and is a fundamental constant in physics.");
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Wavelength</h2> 
+        <img src="wavelength.jpeg" alt="Card Image" class="default-image" onclick="calculateWavelength()">
+        <script>
+            function calculateWavelength() {
+                // Get input for the speed of electromagnetic waves and frequency
+                var speed = 299792458; // Speed of light in a vacuum (m/s)
+                var frequency = prompt('Enter the frequency (in Hz):');
+    
+                // Calculate the wavelength using the formula λ = c/f
+                var wavelength = speed / frequency;
+    
+                // Display the result in an alert window
+                alert('The wavelength is: ' + wavelength.toFixed(9) + ' meters');
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Frequency</h2> 
+        <img src="frequency.jpeg" alt="Card Image" class="default-image" onclick="calculateFrequency()">
+        <script>
+            function calculateFrequency() {
+                // Get input for the speed of electromagnetic waves and wavelength
+                var speed = 299792458; // Speed of light in a vacuum (m/s)
+                var wavelength = prompt('Enter the wavelength (in meters):');
+    
+                // Calculate the frequency using the formula f = c/λ
+                var frequency = speed / wavelength;
+    
+                // Display the result in an alert window
+                alert('The frequency is: ' + frequency.toFixed(15) + ' Hz');
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Energy of a Photon</h2> 
+        <img src="energy-photon.jpeg" alt="Card Image" class="default-image" onclick="calculatePhotonEnergy()">
+        <script>
+            function calculatePhotonEnergy() {
+                // Get input for the Planck's constant, speed of electromagnetic waves, and wavelength
+                var h = 6.626e-34; // Planck's constant (Js)
+                var speed = 299792458; // Speed of light in a vacuum (m/s)
+                var wavelength = prompt('Enter the wavelength (in meters):');
+    
+                // Calculate the energy of a photon using the formula E = hc/λ
+                var energy = (h * speed) / wavelength;
+    
+                // Display the result in an alert window
+                alert('The energy of a photon is: ' + energy.toFixed(16) + ' joules');
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Momentum of a Photon</h2> 
+        <img src="momentum-photon.jpeg" alt="Card Image" class="default-image" onclick="calculatePhotonMomentum()">
+        <script>
+            function calculatePhotonMomentum() {
+                // Get input for the Planck's constant and wavelength
+                var h = 6.626e-34; // Planck's constant (Js)
+                var wavelength = prompt('Enter the wavelength (in meters):');
+    
+                // Calculate the momentum of a photon using the formula p = h/λ
+                var momentum = h / wavelength;
+    
+                // Display the result in an alert window
+                alert('The momentum of a photon is: ' + momentum.toFixed(16) + ' kg·m/s');
+            }
+        </script>    
+    </div>
+    
+    <div class="grid-item">
+        <h2 class="card-heading">Electric Field Strength</h2> 
+        <img src="electric-field-strength.jpeg" alt="Card Image" class="default-image" onclick="calculateElectricFieldStrength()">
+        <script>
+            function calculateElectricFieldStrength() {
+                // Get input for the power, speed of electromagnetic waves, and vacuum permittivity
+                var power = prompt('Enter the power (in watts):');
+                var speed = 299792458; // Speed of light in a vacuum (m/s)
+                var epsilon0 = 8.854e-12; // Vacuum permittivity (F/m)
+    
+                // Calculate the electric field strength using the formula E = √(P/cε₀)
+                var electricFieldStrength = Math.sqrt(power / (speed * epsilon0));
+    
+                // Display the result in an alert window
+                alert('The electric field strength is: ' + electricFieldStrength.toFixed(10) + ' V/m');
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Magnetic Field Strength</h2> 
+        <img src="magnetic-field-strength.jpeg" alt="Card Image" class="default-image" onclick="calculateMagneticFieldStrength()">
+        <script>
+            function calculateMagneticFieldStrength() {
+                // Get input for the power, speed of electromagnetic waves, and vacuum permeability
+                var power = prompt('Enter the power (in watts):');
+                var speed = 299792458; // Speed of light in a vacuum (m/s)
+                var mu0 = 4 * Math.PI * 1e-7; // Vacuum permeability (T·m/A)
+    
+                // Calculate the magnetic field strength using the formula B = √(P/cμ₀)
+                var magneticFieldStrength = Math.sqrt(power / (speed * mu0));
+    
+                // Display the result in an alert window
+                alert('The magnetic field strength is: ' + magneticFieldStrength.toFixed(9) + ' T');
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Intensity of Electromagnetic Radiation</h2> 
+        <img src="intensity-electromagnetic-radiation.jpeg" alt="Card Image" class="default-image" onclick="calculateRadiationIntensity()">
+        <script>
+            function calculateRadiationIntensity() {
+                // Get input for the power and area
+                var power = prompt('Enter the power (in watts):');
+                var area = prompt('Enter the area (in square meters):');
+    
+                // Calculate the intensity of electromagnetic radiation using the formula I = P/A
+                var intensity = power / area;
+    
+                // Display the result in an alert window
+                alert('The intensity of electromagnetic radiation is: ' + intensity.toFixed(2) + ' watts per square meter');
+            }
+        </script>    
+    </div> 
+    
+    <div class="grid-item">
+        <h2 class="card-heading">Refractive Index</h2> 
+        <img src="refractive-index.jpeg" alt="Card Image" class="default-image" onclick="calculateRefractiveIndex()">
+        <script>
+            function calculateRefractiveIndex() {
+                // Get input for the speed of electromagnetic waves and velocity in a medium
+                var speed = 299792458; // Speed of light in a vacuum (m/s)
+                var velocity = prompt('Enter the velocity in the medium (in m/s):');
+    
+                // Calculate the refractive index using the formula n = c/v
+                var refractiveIndex = speed / velocity;
+    
+                // Display the result in an alert window
+                alert('The refractive index is: ' + refractiveIndex.toFixed(5));
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Angle of Refraction</h2> 
+        <img src="angle-refraction.jpeg" alt="Card Image" class="default-image" onclick="calculateAngleOfRefraction()">
+        <script>
+            function calculateAngleOfRefraction() {
+                // Get input for the angle of incidence and refractive index
+                var angleOfIncidence = prompt('Enter the angle of incidence (in degrees):');
+                var refractiveIndex = prompt('Enter the refractive index:');
+    
+                // Convert the angle of incidence to radians
+                var angleInRadians = angleOfIncidence * (Math.PI / 180);
+    
+                // Calculate the angle of refraction using the formula sin(r) = (sin(i))/n
+                var angleOfRefraction = Math.asin(Math.sin(angleInRadians) / refractiveIndex);
+    
+                // Convert the angle of refraction to degrees
+                angleOfRefraction = angleOfRefraction * (180 / Math.PI);
+    
+                // Display the result in an alert window
+                alert('The angle of refraction is: ' + angleOfRefraction.toFixed(5) + ' degrees');
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Diffraction Grating Equation</h2> 
+        <img src="diffraction-grating-equation.jpeg" alt="Card Image" class="default-image" onclick="calculateDiffractionGrating()">
+        <script>
+            function calculateDiffractionGrating() {
+                // Get input for the wavelength, diffraction order, and grating spacing
+                var wavelength = prompt('Enter the wavelength (in meters):');
+                var diffractionOrder = prompt('Enter the diffraction order:');
+                var gratingSpacing = prompt('Enter the grating spacing (in meters):');
+    
+                // Calculate the angle using the diffraction grating equation d sin(θ) = nλ
+                var angle = Math.asin((diffractionOrder * wavelength) / gratingSpacing);
+    
+                // Convert the angle to degrees
+                angle = angle * (180 / Math.PI);
+    
+                // Display the result in an alert window
+                alert('The angle of diffraction is: ' + angle.toFixed(5) + ' degrees');
+            }
+        </script>    
+    </div>
+
+    <div class="grid-item">
+        <h2 class="card-heading">Applications of Electromagnetic Waves</h2> 
+        <img src="applications-electromagnetic-waves.jpeg" alt="Card Image" class="default-image" onclick="explainApplicationsElectromagneticWaves()">
+        <script>
+            function explainApplicationsElectromagneticWaves() {
+                // Display information about Applications of Electromagnetic Waves in an alert window
+                alert("Electromagnetic waves have various applications, including radio waves for communication, microwaves for cooking, infrared radiation for thermal imaging, visible light for illumination, ultraviolet radiation for sterilization, X-rays for medical imaging, and gamma rays for cancer treatment.");
+            }
+        </script>    
+    </div>
+
+    <!--Book 1 completed-->
+</div>  
+
+</body>
+</html>

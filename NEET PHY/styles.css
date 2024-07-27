@@ -1,0 +1,28 @@
+
+
+
+.nav-menu {
+    position: absolute;
+    top: 100%; /* Position the dropdown below the logo */
+    left: calc(0cm - 1cm); /* Shift the menu 2cm to the left of the current margin */
+    display: none;
+    background-color: #fff; /* Background color of the dropdown */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+    border-radius: 4px; /* Optional: Add rounded corners */
+    max-width: 200px; /* Set a maximum width for the dropdown */
+}
+
+.nav-menu a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333; /* Text color of the links */
+}
+
+.nav-menu a:hover {
+    background-color: #f0f0f0; /* Background color on hover */
+}
+
+.logo-container:hover .nav-menu {
+    display: block; /* Show the dropdown when hovering over the logo container */
+}

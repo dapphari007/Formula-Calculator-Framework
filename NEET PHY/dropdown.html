@@ -1,0 +1,66 @@
+<link rel="stylesheet" href="stylesection.css">
+<div class="dropdown">
+    <b><label for="profession">Subject :</label></b>
+    <select id="profession" onchange="showContent()">
+        <option value="">Select a stream</option>
+        <option value="PHYSICS">PHYSICS</option>
+        <option value="MATHS">MATHS</option>
+        <option value="CHEMISTRY">CHEMISTRY</option>
+        <option value="BIOLOGY">BIOLOGY</option>
+    </select>
+</div>
+
+<div id="physicsContent" class="content" style="display:none;">
+    <a href="http://10.10.11.29:5500/phycardstrial.html"></a>    <!--change every time-->
+</div>
+
+<div id="mathsContent" class="content" style="display:none;">
+    <a href="http://your-math-page-url">Link to PHY</a>
+</div>
+
+<div id="chemistryContent" class="content" style="display:none;">
+    <a href="http://your-chemistry-page-url">Link to CHEMISTRY content</a>
+</div>
+
+<div id="biologyContent" class="content" style="display:none;">
+    <a href="http://your-biology-page-url">Link to BIOLOGY content</a>
+</div>
+
+<script>
+    function showContent() {
+        var dropdown = document.getElementById("profession");
+        
+        hideAllContent(); // Hide all content divs
+        
+        if (dropdown.value === "MATHS") {
+            showContentForSubject("mathsContent");
+        } else if (dropdown.value === "PHYSICS") {
+            showContentForSubject("physicsContent");
+        } else if (dropdown.value === "CHEMISTRY") {
+            showContentForSubject("chemistryContent");
+        } else if (dropdown.value === "BIOLOGY") {
+            showContentForSubject("biologyContent");
+        }
+    }
+
+    function hideAllContent() {
+        var contentDivs = document.querySelectorAll(".content");
+        contentDivs.forEach(function(div) {
+            div.style.display = "none";
+        });
+    }
+
+    function showContentForSubject(subject) {
+        var content = document.getElementById(subject);
+        content.style.display = "block";
+        openLink(subject);
+    }
+
+    function openLink(subject) {
+        var linkElement = document.querySelector(`#${subject} a`);
+        if (linkElement) {
+            var link = linkElement.getAttribute("href");
+            window.location.href = link;
+        }
+    }
+</script>
