@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
     
         webView!!.webChromeClient = MyWebChromeClient()
 
-        val yourMachineIpAddress = "10.10.11.29"
+        val yourMachineIpAddress = "192.168.81.226"
         webView!!.loadUrl("http://$yourMachineIpAddress:5500/formulas.html")
 
         // Ensure links within the WebView open in the WebView itself
